@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>rokusai</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/embedded-hardware-applications/">Embedded &amp; Hardware Applications</a></p>
+<h1>rokusai</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rokusai">https://github.com/aquaxis/rokusai</a></p>
+<h2>Overview</h2>
+<p>Rokusai ("six colors") converts JPEG/PNG images into BMP/PNG limited to the seven-color palette of digital photo frames (black, white, yellow, red, blue, green), with white-balance correction, color enhancement, and Floyd–Steinberg dithering.</p>
+<h2>Features</h2>
+<ul>
+<li>Multiple image formats: JPEG/PNG input, BMP/PNG output</li>
+<li>Color enhancement: saturation, contrast, brightness, gamma, and hue adjustments</li>
+<li>Floyd–Steinberg dithering for high-quality palette conversion</li>
+<li>Aspect-ratio-preserving resize with centered placement on a white background</li>
+</ul>
+<h2>Installation</h2>
+<p>Build from source with the provided Makefile:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/rokusai.git
+<br/>cd rokusai
+<br/>make
+</code></pre>
+<h2>Usage</h2>
+<p>Convert an image with the default automatic white balance:</p>
+<pre><code>
+<br/>./rokusai input.jpg output.bmp
+</code></pre>
+<p>Manual white-balance gains, color enhancement, and dithering options are documented in the repository README.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: see the repository (LICENSE file).</li>
+</ul>
+</body></html>

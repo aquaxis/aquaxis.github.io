@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>athena</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>athena</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/athena">https://github.com/aquaxis/athena</a></p>
+<h2>概要</h2>
+<p>ATHENA (Autonomous Task Hierarchy & Execution Network Architecture) は、自然言語での作業指示を複数の AI エージェント階層(Director / Lead / Worker)で計画・委譲・再計画するシステムアーキテクチャです。HTTP/SSE の Core API、CLI (`athena chat`)、WASM 製 Studio UI を備えます。</p>
+<h2>特徴</h2>
+<ul>
+<li>AIエージェント自体がコア: Core Host (athena-core) は監督・状態記録・ポリシー強制のみ、思考はエージェントプロセスが担う</li>
+<li>5実行ユニット: athena-api (常駐:8080) / athena-core / athena-runtime-agent-cli / athena CLI / athena-studio (WASM:5173)</li>
+<li>単一の権威あるストア `athena.db` (redb — 純Rust組み込みACID)</li>
+<li>`athena init` による人・スキル・設定のプロジェクト配布</li>
+<li>モジュール境界は CI の静的検査で機械的に強制</li>
+<li>仕様書 (`spec/athena_spec_1.0.md`) が唯一の正、全正規文に ATH-* ID</li>
+</ul>
+<h2>インストール</h2>
+<p>一行で(ビルドして2バイナリをPATHへ):</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/athena/main/install.sh | sh
+</code></pre>
+<p>更新は `athena update`(ツール更新+プロジェクトの personas/skills を追加的更新)。</p>
+<h2>使い方</h2>
+<pre><code>
+<br/>cd ~/projects/my-project
+<br/>athena init          # .athena/ と .aiprj/ を生成
+<br/>athena-api           # 常駐Core API (127.0.0.1:8080)
+<br/>athena run &quot;TODO APIを実装して&quot;
+<br/>athena chat          # 会話型エントリポイント
+<br/>athena status
+</code></pre>
+<p>`.athena/config.yaml` で provider / model / delegable_tools を明示設定(シークレットは書かない)。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: MIT</li>
+<li>詳細は [GitHub README](https://github.com/aquaxis/athena) を参照してください。</li>
+</ul>
+</body></html>

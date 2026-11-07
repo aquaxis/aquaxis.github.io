@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>aquaxis</title></head>
+<body>
+<h1>aquaxis</h1>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p>GitHub: <a href="https://github.com/aquaxis">https://github.com/aquaxis</a></p>
+<p><b>aquaxis</b> は、AI駆動のソフトウェアとハードウェア（FPGA/HDL）設計自動化という、連動する2つの領域で活動するオープンソースエンジニアリング組織です。43件の public リポジトリを4つのカテゴリーに分けて表形式で紹介します。各リポジトリには個別のページがあります。</p>
+<h2>AI &amp; Agent Tools</h2>
+<p>AIエージェントスタック: <a href="/agent-cli/index_ja.html">agent-cli</a> がプロセス／IPC基盤で、その上に <a href="/athena/index_ja.html">athena</a>、<a href="/layers/index_ja.html">layers</a>、<a href="/mnemo/index_ja.html">mnemo</a>、<a href="/hestia/index_ja.html">hestia</a> が構築されています。カテゴリーページ: <a href="/ai-agent-tools/index_ja.html">AI &amp; Agent Tools</a>。</p>
+<table>
+<tr><th>リポジトリ</th><th>概要</th><th>主言語</th><th>GitHub</th></tr>
+<tr><td><a href="/agent-cli/index_ja.html">agent-cli</a></td><td>Claude Code相当のAIエージェントREPLを単一Rust CLIに搭載:内蔵ツール、9種のプロバイダバックエンド、マルチエージェントIPC、ペルソナ、グループ、デタッチドエージェント。</td><td>Rust</td><td><a href="https://github.com/aquaxis/agent-cli">GitHub</a></td></tr>
+<tr><td><a href="/athena/index_ja.html">athena</a></td><td>ATHENA(Autonomous Task Hierarchy &amp; Execution Network Architecture):Director/Lead/Worker階層へ作業を計画・委譲するAIエージェントコア。HTTP/SSE API、CLI(athena chat)、WASM Studioを持つ。</td><td>Rust</td><td><a href="https://github.com/aquaxis/athena">GitHub</a></td></tr>
+<tr><td><a href="/layers/index_ja.html">layers</a></td><td>Layers(Logic Aligned Yet Expressive Role System):tmux + Claude Code CLI または agent-cli プロセスで動く14エージェントの階層型マルチエージェント組織。</td><td>TypeScript</td><td><a href="https://github.com/aquaxis/layers">GitHub</a></td></tr>
+<tr><td><a href="/alecto/index_ja.html">alecto</a></td><td>Autonomous Logic Executor for Complex Task Operations:ローカルOllamaモデルとMCPサーバを組み合わせたツール拡張可能なLLMチャットCLI。</td><td>TypeScript</td><td><a href="https://github.com/aquaxis/alecto">GitHub</a></td></tr>
+<tr><td><a href="/mnemo/index_ja.html">mnemo</a></td><td>AIエージェント活用のナレッジデータベース:ノート作成、Wiki、AIによるWeb収集、定期タスクをMarkdownベースで管理。</td><td>Rust</td><td><a href="https://github.com/aquaxis/mnemo">GitHub</a></td></tr>
+<tr><td><a href="/rag-cli/index_ja.html">rag-cli</a></td><td>単一RustバイナリのローカルRAG(検索拡張生成)システム:多形式取り込み、bge-m3エンベディング、Qdrantベクトル検索、クロスエンコーダ再ランキング、引用付きLLM回答、REST API。</td><td>Rust</td><td><a href="https://github.com/aquaxis/rag-cli">GitHub</a></td></tr>
+<tr><td><a href="/aiprj/index_ja.html">aiprj</a></td><td>エージェントCLI向けAIプロジェクト管理ツール:AI運用ガイドラインと要件/設計/タスクの文書構造を1コマンドで展開。</td><td>Shell</td><td><a href="https://github.com/aquaxis/aiprj">GitHub</a></td></tr>
+<tr><td><a href="/ejtranslate/index_ja.html">ejtranslate</a></td><td>ローカルOllamaサーバを使う英日ファイル翻訳CLI。ソース言語を自動判定。</td><td>Rust</td><td><a href="https://github.com/aquaxis/ejtranslate">GitHub</a></td></tr>
+<tr><td><a href="/ChronoMark/index_ja.html">ChronoMark</a></td><td>Markdownタスクをガントチャート表示するWebアプリ(タスク1件=ファイル1つ、階層=ディレクトリ)。</td><td>TypeScript</td><td><a href="https://github.com/aquaxis/ChronoMark">GitHub</a></td></tr>
+</table>
+<h2>Hardware &amp; RTL</h2>
+<p>ハードウェア記述言語、EDAツール、RISC-V プロセッサ／SoC 設計、FPGA IP コア。カテゴリーページ: <a href="/hardware-rtl/index_ja.html">Hardware &amp; RTL</a>。</p>
+<table>
+<tr><th>リポジトリ</th><th>概要</th><th>主言語</th><th>GitHub</th></tr>
+<tr><td><a href="/hestia/index_ja.html">hestia</a></td><td>Hestia — Hardware Engineering Stack for Tool Integration and Automation: FPGA/ASIC/PCB/HAL/組込みツールを統合するAI駆動ハードウェア開発環境。9人のConductorエージェントがagent-cli IPCで連携。</td><td>Rust</td><td><a href="https://github.com/aquaxis/hestia">GitHub</a></td></tr>
+<tr><td><a href="/iris/index_ja.html">iris</a></td><td>IRIS (Immutable RTL, Intentional Semantics) — シミュレータ、フォーマッタ/リンタ/LSP、SystemVerilog双方向トランスパイラ、形式的等価検証を備えたハードウェア記述言語。</td><td>TypeScript / Rust</td><td><a href="https://github.com/aquaxis/iris">GitHub</a></td></tr>
+<tr><td><a href="/shiori/index_ja.html">shiori</a></td><td>Shiori — HDL/RTLアノテーションエコシステム: コード内アノテーションからドキュメント生成・整合検証・テストベンチ/ソース雛形生成を行う。</td><td>TypeScript</td><td><a href="https://github.com/aquaxis/shiori">GitHub</a></td></tr>
+<tr><td><a href="/rv_saturn/index_ja.html">rv_saturn</a></td><td>マルチコア RISC-V ソフトコア SoC: デュアルハート RV32I + RVV (Zve32x サブセット)、APBペリフェラル、AMD Artix-7 ターゲット、Verilator シミュレーションと OpenOCD JTAG デバッグ。</td><td>SystemVerilog (RTL) / C (apps)</td><td><a href="https://github.com/aquaxis/rv_saturn">GitHub</a></td></tr>
+<tr><td><a href="/kairo/index_ja.html">kairo</a></td><td>KAIRO — Kernel Architecture with Intelligent RISC-V Operations: SystemVerilog製モジュラー構成の RISC-V プロセッサコア。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/kairo">GitHub</a></td></tr>
+<tr><td><a href="/vsync/index_ja.html">vsync</a></td><td>VSync — POSIX対応ハードウェアRTOS: タスク管理/コンテキストスイッチをハードウェアで実装した RISC-V RV32IM 5段パイプライン SoC。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/vsync">GitHub</a></td></tr>
+<tr><td><a href="/asuna/index_ja.html">asuna</a></td><td>ASUNA — Algorithmic Synthesis for Unified Netlist Automation: C言語ソース1ファイルから Verilog HDL を生成する高位合成ツール。</td><td>C</td><td><a href="https://github.com/aquaxis/asuna">GitHub</a></td></tr>
+<tr><td><a href="/ModView/index_ja.html">ModView</a></td><td>SystemVerilog モジュール接続ビューア: VeribleでRTLを解析し、ELK.jsでレイアウトした編集可能な配線図を描画。</td><td>SystemVerilog / TypeScript</td><td><a href="https://github.com/aquaxis/ModView">GitHub</a></td></tr>
+<tr><td><a href="/jpegenc/index_ja.html">jpegenc</a></td><td>SystemVerilog製 FPGA ベースライン JPEG エンコーダ IP — デュアル処理パイプライン、4:2:0 サンプリング、約1.53 clk/px (FHD/250MHzで約78fps)。全59テスト合格。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/jpegenc">GitHub</a></td></tr>
+<tr><td><a href="/jpegenc_gai/index_ja.html">jpegenc_gai</a></td><td>生成AIが書いた JPEG エンコーダ IP（SystemVerilog、24bit RGB入力、4:2:0、JFIFヘッダ出力）— 出版書籍の成果物。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/jpegenc_gai">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_djpeg/index_ja.html">aq_axis_djpeg</a></td><td>AXI-Stream JPEG ベースラインデコーダ IP。AXI-Stream 入力とブロックピクセルストリーム出力、AXI-Lite モニタ付き。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_djpeg">GitHub</a></td></tr>
+<tr><td><a href="/gemac/index_ja.html">gemac</a></td><td>ギガビット Ethernet MAC（UDP/TCP/IP オフロードエンジン付き）、AXI-Stream ベース。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/gemac">GitHub</a></td></tr>
+<tr><td><a href="/aq_mipi_csi2rx_ultrascaleplus/index_ja.html">aq_mipi_csi2rx_ultrascaleplus</a></td><td>AMD UltraScale+ デバイス向け MIPI CSI-2 レシーバサブシステム IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_mipi_csi2rx_ultrascaleplus">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_fifo/index_ja.html">aq_axis_fifo</a></td><td>AXI-Stream FIFO（AXI スレーブ FIFO）ビルディングブロック IP。Vivado シミュレーション付き。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/aq_axis_fifo">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_t32f64/index_ja.html">aq_axis_t32f64</a></td><td>AXI-Stream ビルディングブロック IP（t32f64）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_t32f64">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_reduce/index_ja.html">aq_axis_reduce</a></td><td>AXI-Stream リダクションビルディングブロック IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_reduce">GitHub</a></td></tr>
+<tr><td><a href="/aq_axils_sample/index_ja.html">aq_axils_sample</a></td><td>インターフェース学習・検証用 AXI4-Lite サンプル IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axils_sample">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_getfreq/index_ja.html">aq_axi_getfreq</a></td><td>AXIでアクセスするクロック周波数測定 IP（aq_getfreq）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_getfreq">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_sigcap/index_ja.html">aq_axi_sigcap</a></td><td>AXIドメイン波形を記録するシグナルキャプチャ IP（aq_sigcap）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_sigcap">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_sdma64/index_ja.html">aq_axi_sdma64</a></td><td>AXI上の64ビットスキャッターゲザー DMA エンジン IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_sdma64">GitHub</a></td></tr>
+<tr><td><a href="/rv_debug/index_ja.html">rv_debug</a></td><td>RISC-V デバッグモジュール RTL（Debug Module / DTM）、rv_saturn のコンパニオン。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/rv_debug">GitHub</a></td></tr>
+<tr><td><a href="/IPCORE/index_ja.html">IPCORE</a></td><td>IPCORE — 汎用 IP コアコレクション。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/IPCORE">GitHub</a></td></tr>
+<tr><td><a href="/debug_uart/index_ja.html">debug_uart</a></td><td>オンターゲット起動用デバッグ UART IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/debug_uart">GitHub</a></td></tr>
+<tr><td><a href="/CNNFPGA/index_ja.html">CNNFPGA</a></td><td>書籍「ソフトウェア技術者のためのFPGA入門 機械学習編」（SDSoC 2017.2 プロジェクト）のワーキングフォルダ。</td><td>C</td><td><a href="https://github.com/aquaxis/CNNFPGA">GitHub</a></td></tr>
+<tr><td><a href="/c105/index_ja.html">c105</a></td><td>C105 頒布物「FPGAの内容が薄い本8 やりなおしからはじめるFPGA開発」のサンプルソースコード。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/c105">GitHub</a></td></tr>
+<tr><td><a href="/sp7hat/index_ja.html">sp7hat</a></td><td>SP7 ハットボードのリポジトリ。</td><td>—</td><td><a href="https://github.com/aquaxis/sp7hat">GitHub</a></td></tr>
+</table>
+<h2>組込み・ハードウェア応用</h2>
+<p>実ハードウェア上で動くアプリケーション — eペーパーディスプレイ、ESP32-S3 ボード、FPGA ラボ用ツール、Yocto ボードサポート。カテゴリーページ: <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a>。</p>
+<table>
+<tr><th>リポジトリ</th><th>概要</th><th>主言語</th><th>GitHub</th></tr>
+<tr><td><a href="/debug_tools/index_ja.html">debug_tools</a></td><td>FPGA 用デバッグツール: /dev/mem ベースの Linux メモリ読み書きユーティリティ。</td><td>C</td><td><a href="https://github.com/aquaxis/debug_tools">GitHub</a></td></tr>
+<tr><td><a href="/reTerminal/index_ja.html">reTerminal</a></td><td>XIAO-ESP32-S3 ボードで reTerminal E1002 の 7.3 型フルカラー eペーパー（GDEP073E01）を駆動する ESP-IDF アプリケーション。</td><td>C</td><td><a href="https://github.com/aquaxis/reTerminal">GitHub</a></td></tr>
+<tr><td><a href="/rokusai/index_ja.html">rokusai</a></td><td>JPEG/PNG 画像を、ホワイトバランス補正・色強調・ディザリング付きで 7 色 eペーパーパレットの BMP/PNG へ変換。</td><td>C</td><td><a href="https://github.com/aquaxis/rokusai">GitHub</a></td></tr>
+<tr><td><a href="/e-Paper13.3/index_ja.html">e-Paper13.3</a></td><td>BCM2835 ライブラリで 13.3 型 6 色 eペーパーディスプレイへ画像を表示する Raspberry Pi プログラム。</td><td>C</td><td><a href="https://github.com/aquaxis/e-Paper13.3">GitHub</a></td></tr>
+<tr><td><a href="/meta-aquaxis/index_ja.html">meta-aquaxis</a></td><td>Ultra96V2 向けレシピとビルド手順を集めた Yocto Project レイヤー。</td><td>C / BitBake</td><td><a href="https://github.com/aquaxis/meta-aquaxis">GitHub</a></td></tr>
+</table>
+<h2>資料・リファレンス</h2>
+<p>公開中の学習リソース、本サイト自身、フォークリポジトリ。Zenn 本: <a href="https://zenn.dev/aquaxis/books/systemverilog-complete-guide">SystemVerilog 完全解説 入門書</a> / <a href="https://zenn.dev/aquaxis/books/iris-guidebook">IRIS 完全解説 入門書</a>。カテゴリーページ: <a href="/resources-references/index_ja.html">資料・リファレンス</a>。</p>
+<table>
+<tr><th>リポジトリ</th><th>概要</th><th>主言語</th><th>GitHub</th></tr>
+<tr><td><a href="/webdoc/index_ja.html">webdoc</a></td><td>出版済み Zenn 本「SystemVerilog 完全解説 入門書」「IRIS 完全解説 入門書」の原稿リポジトリ。</td><td>Markdown</td><td><a href="https://github.com/aquaxis/webdoc">GitHub</a></td></tr>
+<tr><td><a href="/index_ja.html">aquaxis.github.io</a></td><td>本サイト自身:aquaxis のプロジェクト紹介ページ。</td><td>Markdown</td><td><a href="https://github.com/aquaxis/aquaxis.github.io">GitHub</a></td></tr>
+<tr><td><a href="/opencv/index_ja.html">opencv</a></td><td>OpenCV (Open Source Computer Vision Library) のフォーク — 上流ミラー。フォークとして明記。</td><td>C++</td><td><a href="https://github.com/aquaxis/opencv">GitHub</a></td></tr>
+</table>
+<h2>ライセンス</h2>
+<p>オリジナルのプロジェクトは特記なき限りMITライセンスです。<code>rv_saturn</code> のみ GPL-3.0／商用デュアルライセンス。詳細は各リポジトリを参照してください。</p>
+</body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ChronoMark</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>ChronoMark</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ChronoMark">https://github.com/aquaxis/ChronoMark</a></p>
+<h2>Overview</h2>
+<p>ChronoMark manages tasks in Markdown and displays them as a Gantt chart. One task is one Markdown file (`.md`) — editable as text, versioned with Git, and viewable/manipulable as a Gantt chart in the browser. The name combines **Chrono** (time) and **Markdown**.</p>
+<h2>Features</h2>
+<ul>
+<li>Markdown is the single source of truth — 1 task = 1 file, no database; history and diffs are Git's job</li>
+<li>Gantt chart using the bundled jQueryGantt: dependencies, hierarchy, progress, and milestones editable inline, with autosave (no save button)</li>
+<li>Two editing modes: a per-item property form (with Obsidian-style live Markdown preview) and raw `.md` editing with server-side YAML/schema validation</li>
+<li>Hierarchy is the directory structure; references always use immutable ULID uids (renames/moves never break dependencies)</li>
+<li>Optimistic locking — concurrent external edits are detected and rejected with `409` instead of overwriting</li>
+<li>Multiple projects with an "All projects" combined view; live updates via WebSocket file-change detection</li>
+<li>Import from external tools: jQueryGantt export / Lychee Redmine / GitHub Projects v2 / Backlog normalized to a `UnifiedTask` schema</li>
+</ul>
+<h2>Installation</h2>
+<pre><code>
+<br/>./setup.sh    # checks Node &gt;= 20, installs dependencies, generates the CodeMirror 6 bundle
+<br/>npm start     # serves http://localhost:4000 (data in ./data)
+</code></pre>
+<p>`npm install` alone can also start it. A `demo` project is auto-created on first open.</p>
+<h2>Usage</h2>
+<pre><code>
+<br/>npm run project:create -- &lt;name&gt;       # create a project (no server restart needed)
+<br/>npm run sample:create                  # sample and website sample projects
+<br/>npm run import:gantt -- &lt;project&gt;      # import a jQueryGantt export JSON
+<br/>npm run dev                            # auto-reload development server
+</code></pre>
+<p>In the browser: **Explorer** (task tree), task edit (form or `.md` mode), and the Gantt view (drag bars, connect dependencies, milestones, resource view, status filters). A `PORT=4123 CHRONOMARK_DATA=/path/to/data npm start` form changes the port and data directory. Screenshots and details are in the repository's `doc/` directory.</p>
+<h2>Notes</h2>
+<ul>
+<li>The bundled third-party libraries (jQueryGantt, jQuery, html2canvas, CodeMirror 6, …) are MIT or MIT-dual licensed and kept under `web/vendor/`.</li>
+<li>Current version: 0.10.0; changes are tracked in `CHANGELOG.md`.</li>
+</ul>
+<h2>License</h2>
+<p>MIT. Copyright (c) 2026 AQUAXIS / Hidemi Ishihara.</p>
+</body></html>

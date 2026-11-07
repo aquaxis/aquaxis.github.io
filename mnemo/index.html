@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>mnemo</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>Mnemo</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/mnemo">https://github.com/aquaxis/mnemo</a></p>
+<h2>Overview</h2>
+<p>Mnemo is an integrated, Markdown-based knowledge database — an "omnipotent archive of memory and knowledge" (named for Mnemosyne, the Greek goddess of memory). It combines Obsidian-style live Markdown note taking, a wiki, AI-agent web collection, AI chat (research mode), and scheduled tasks, storing everything as portable Markdown files.</p>
+<h2>Features</h2>
+<ul>
+<li>Three-pane UI (navigation · note list · editor) with draggable, collapsible panes; single-screen phone layout below 768px</li>
+<li>Obsidian-style live Markdown editor (CodeMirror 6); note = file, folder = category, no frontmatter</li>
+<li>AI information collection: crawl web pages, extract key points, save as notes</li>
+<li>AI chat (research mode): web-checked answers with source lists; conversations auto-save as notes</li>
+<li>Schedule tasks by asking ("every morning, collect the AI news") or via the Schedule button; cron scheduling</li>
+<li>Selectable AI backend: agent-cli (default) or Claude Code CLI; AI note search across all notes</li>
+</ul>
+<h2>Installation</h2>
+<p>One-liner:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/mnemo/main/install.sh | sh
+<br/># or into a specific directory:
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/mnemo/main/install.sh | sh -s -- my-mnemo
+</code></pre>
+<p>Manual setup:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/mnemo.git
+<br/>cd mnemo
+<br/>npm install   # web app dependencies
+<br/>npm start     # builds the web app + Rust server binary, then runs the server
+</code></pre>
+<p>Requirements: Node.js ≥ 18 and Rust (cargo). Updates never touch `data/` (notes, assets, config, and scheduled jobs survive).</p>
+<h2>Usage</h2>
+<p>Open `http://localhost:3000` in a browser. Configuration is in `data/config.json` (port, AI backend via `ai.type`, output language, search endpoint such as the Jina AI search API with `JINA_API_KEY`, reliability settings). Settings can also be edited from the in-app Settings page. For running it detached:</p>
+<pre><code>
+<br/>nohup npm start &gt;/dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<p>Data layout: `data/notes/` (Markdown, classified by category), `data/assets/`, `data/scripts/` (agent working files), `data/jobs/` (scheduled jobs).</p>
+<h2>Notes</h2>
+<p>Tech stack: Rust (axum + tokio) server; TypeScript (React + Vite + Tailwind) web app with CodeMirror 6.</p>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

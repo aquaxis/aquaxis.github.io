@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>ハードウェア／RTL</title></head>
+<body>
+<h1>ハードウェア／RTL</h1>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a> · ハードウェア／RTL · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a> · <a href="/resources-references/index_ja.html">資料・リファレンス</a></p>
+<p>aquaxis オーガニゼーションのハードウェア記述言語、EDAツール、RISC-V プロセッサ／SoC 設計、FPGA IP コアのプロジェクト群。</p>
+<table>
+<tr><th>リポジトリ</th><th>概要</th><th>主言語</th><th>GitHub</th></tr>
+<tr><td><a href="/hestia/index_ja.html">hestia</a></td><td>Hestia — Hardware Engineering Stack for Tool Integration and Automation: FPGA/ASIC/PCB/HAL/組込みツールを統合するAI駆動ハードウェア開発環境。9人のConductorエージェントがagent-cli IPCで連携。</td><td>Rust</td><td><a href="https://github.com/aquaxis/hestia">GitHub</a></td></tr>
+<tr><td><a href="/iris/index_ja.html">iris</a></td><td>IRIS (Immutable RTL, Intentional Semantics) — シミュレータ、フォーマッタ/リンタ/LSP、SystemVerilog双方向トランスパイラ、形式的等価検証を備えたハードウェア記述言語。</td><td>TypeScript / Rust</td><td><a href="https://github.com/aquaxis/iris">GitHub</a></td></tr>
+<tr><td><a href="/shiori/index_ja.html">shiori</a></td><td>Shiori — HDL/RTLアノテーションエコシステム: コード内アノテーションからドキュメント生成・整合検証・テストベンチ/ソース雛形生成を行う。</td><td>TypeScript</td><td><a href="https://github.com/aquaxis/shiori">GitHub</a></td></tr>
+<tr><td><a href="/rv_saturn/index_ja.html">rv_saturn</a></td><td>マルチコア RISC-V ソフトコア SoC: デュアルハート RV32I + RVV (Zve32x サブセット)、APBペリフェラル、AMD Artix-7 ターゲット、Verilator シミュレーションと OpenOCD JTAG デバッグ。</td><td>SystemVerilog (RTL) / C (apps)</td><td><a href="https://github.com/aquaxis/rv_saturn">GitHub</a></td></tr>
+<tr><td><a href="/kairo/index_ja.html">kairo</a></td><td>KAIRO — Kernel Architecture with Intelligent RISC-V Operations: SystemVerilog製モジュラー構成の RISC-V プロセッサコア。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/kairo">GitHub</a></td></tr>
+<tr><td><a href="/vsync/index_ja.html">vsync</a></td><td>VSync — POSIX対応ハードウェアRTOS: タスク管理/コンテキストスイッチをハードウェアで実装した RISC-V RV32IM 5段パイプライン SoC。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/vsync">GitHub</a></td></tr>
+<tr><td><a href="/asuna/index_ja.html">asuna</a></td><td>ASUNA — Algorithmic Synthesis for Unified Netlist Automation: C言語ソース1ファイルから Verilog HDL を生成する高位合成ツール。</td><td>C</td><td><a href="https://github.com/aquaxis/asuna">GitHub</a></td></tr>
+<tr><td><a href="/ModView/index_ja.html">ModView</a></td><td>SystemVerilog モジュール接続ビューア: VeribleでRTLを解析し、ELK.jsでレイアウトした編集可能な配線図を描画。</td><td>SystemVerilog / TypeScript</td><td><a href="https://github.com/aquaxis/ModView">GitHub</a></td></tr>
+<tr><td><a href="/jpegenc/index_ja.html">jpegenc</a></td><td>SystemVerilog製 FPGA ベースライン JPEG エンコーダ IP — デュアル処理パイプライン、4:2:0 サンプリング、約1.53 clk/px (FHD/250MHzで約78fps)。全59テスト合格。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/jpegenc">GitHub</a></td></tr>
+<tr><td><a href="/jpegenc_gai/index_ja.html">jpegenc_gai</a></td><td>生成AIが書いた JPEG エンコーダ IP（SystemVerilog、24bit RGB入力、4:2:0、JFIFヘッダ出力）— 出版書籍の成果物。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/jpegenc_gai">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_djpeg/index_ja.html">aq_axis_djpeg</a></td><td>AXI-Stream JPEG ベースラインデコーダ IP。AXI-Stream 入力とブロックピクセルストリーム出力、AXI-Lite モニタ付き。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_djpeg">GitHub</a></td></tr>
+<tr><td><a href="/gemac/index_ja.html">gemac</a></td><td>ギガビット Ethernet MAC（UDP/TCP/IP オフロードエンジン付き）、AXI-Stream ベース。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/gemac">GitHub</a></td></tr>
+<tr><td><a href="/aq_mipi_csi2rx_ultrascaleplus/index_ja.html">aq_mipi_csi2rx_ultrascaleplus</a></td><td>AMD UltraScale+ デバイス向け MIPI CSI-2 レシーバサブシステム IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_mipi_csi2rx_ultrascaleplus">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_fifo/index_ja.html">aq_axis_fifo</a></td><td>AXI-Stream FIFO（AXI スレーブ FIFO）ビルディングブロック IP。Vivado シミュレーション付き。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/aq_axis_fifo">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_t32f64/index_ja.html">aq_axis_t32f64</a></td><td>AXI-Stream ビルディングブロック IP（t32f64）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_t32f64">GitHub</a></td></tr>
+<tr><td><a href="/aq_axis_reduce/index_ja.html">aq_axis_reduce</a></td><td>AXI-Stream リダクションビルディングブロック IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axis_reduce">GitHub</a></td></tr>
+<tr><td><a href="/aq_axils_sample/index_ja.html">aq_axils_sample</a></td><td>インターフェース学習・検証用 AXI4-Lite サンプル IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axils_sample">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_getfreq/index_ja.html">aq_axi_getfreq</a></td><td>AXIでアクセスするクロック周波数測定 IP（aq_getfreq）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_getfreq">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_sigcap/index_ja.html">aq_axi_sigcap</a></td><td>AXIドメイン波形を記録するシグナルキャプチャ IP（aq_sigcap）。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_sigcap">GitHub</a></td></tr>
+<tr><td><a href="/aq_axi_sdma64/index_ja.html">aq_axi_sdma64</a></td><td>AXI上の64ビットスキャッターゲザー DMA エンジン IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/aq_axi_sdma64">GitHub</a></td></tr>
+<tr><td><a href="/rv_debug/index_ja.html">rv_debug</a></td><td>RISC-V デバッグモジュール RTL（Debug Module / DTM）、rv_saturn のコンパニオン。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/rv_debug">GitHub</a></td></tr>
+<tr><td><a href="/IPCORE/index_ja.html">IPCORE</a></td><td>IPCORE — 汎用 IP コアコレクション。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/IPCORE">GitHub</a></td></tr>
+<tr><td><a href="/debug_uart/index_ja.html">debug_uart</a></td><td>オンターゲット起動用デバッグ UART IP。</td><td>Verilog</td><td><a href="https://github.com/aquaxis/debug_uart">GitHub</a></td></tr>
+<tr><td><a href="/CNNFPGA/index_ja.html">CNNFPGA</a></td><td>書籍「ソフトウェア技術者のためのFPGA入門 機械学習編」（SDSoC 2017.2 プロジェクト）のワーキングフォルダ。</td><td>C</td><td><a href="https://github.com/aquaxis/CNNFPGA">GitHub</a></td></tr>
+<tr><td><a href="/c105/index_ja.html">c105</a></td><td>C105 頒布物「FPGAの内容が薄い本8 やりなおしからはじめるFPGA開発」のサンプルソースコード。</td><td>SystemVerilog</td><td><a href="https://github.com/aquaxis/c105">GitHub</a></td></tr>
+<tr><td><a href="/sp7hat/index_ja.html">sp7hat</a></td><td>SP7 ハットボードのリポジトリ。</td><td>—</td><td><a href="https://github.com/aquaxis/sp7hat">GitHub</a></td></tr>
+</table>
+<p>GitHub リポジトリ: <a href="https://github.com/orgs/aquaxis/repositories?q=&amp;type=public">aquaxis — ハードウェア／RTL</a></p>
+</body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>ModView</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>ModView</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ModView">https://github.com/aquaxis/ModView</a></p>
+<h2>概要</h2>
+<p>ModViewは SystemVerilog モジュール接続ビューアです。RTLフォルダを指定すると、Veribleで構文解析し、モジュールの配線図をブラウザ上に描画します。ドラッグで再配置もでき、OSSのみで動作します。</p>
+<h2>特徴</h2>
+<ul>
+<li>Verible による構文解析(モジュール/ポート/バス幅/パラメータ/インスタンス接続)</li>
+<li>ネット経由の配線推論(命名規則に依存しない)</li>
+<li>ELK.js による自動レイアウト(階層配置+直交エッジルーティング)</li>
+<li>階層をコンテナノードとしてネスト表示</li>
+<li>interface バスの色分きトランク表示(クリックで展開/折畳)</li>
+<li>レイアウトのJSON保存/読込(Ctrl+S / Ctrl+O)</li>
+</ul>
+<h2>インストール</h2>
+<p>Docker(推奨):</p>
+<pre><code>docker compose up --build</code></pre>
+<h2>使い方</h2>
+<p>ブラウザでUIにアクセスし、Select Folder でRTLフォルダを取込み、Parse を押します。付属のJPEGエンコーダ例(example/jpegenc/rtl)で動作確認できます。</p>
+<h2>備考</h2>
+<ul>
+<li>ModView本体はMIT、同梱部品はVerible(Apache-2.0)/JointJS(MPL-2.0)/ELK.js(EPL-2.0)</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

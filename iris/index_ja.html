@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>iris</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>iris</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/iris">https://github.com/aquaxis/iris</a></p>
+<h2>概要</h2>
+<p>IRIS(Immutable RTL, Intentional Semantics)は、組み合わせ回路と順序回路を記述するためのハードウェア記述言語です。約220の予約語を持つSystemVerilogに対し、58語のキーワードでRTL設計に必要な表現力を提供します。</p>
+<h2>特徴</h2>
+<ul>
+<li>暗黙の型変換廃止・ビット幅不一致はコンパイルエラー(Safety First)</li>
+<li>統一されたデータ型と代入演算子、{}記法による簡潔な記述</li>
+<li>シミュレータ(インタプリタ+コンパイラ)同梱</li>
+<li>iris2sv / sv2iris / veryl2iris の双方向トランスパイラ</li>
+<li>フォーマッタ・リンタ・LSP・VSCode拡張</li>
+<li>IRISと生成SystemVerilogの形式的等価性検証(tools/formal)</li>
+</ul>
+<h2>インストール</h2>
+<p>前提としてRust(cargo)が必要です。リポジトリをクローンしてビルドします:</p>
+<pre><code>git clone https://github.com/aquaxis/iris.git
+cd iris
+cargo build --release</code></pre>
+<h2>使い方</h2>
+<p>統合コマンド iris で各ツールを利用します: iris sim(シミュレーション)、iris sv(SystemVerilog変換)、iris fmt(整形)、iris lint、iris lsp。詳細は spec/ と言語仕様書を参照してください。</p>
+<h2>備考</h2>
+<ul>
+<li>言語仕様: <a href="https://github.com/aquaxis/iris/blob/main/spec/iris_spec.md">spec/iris_spec.md</a></li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

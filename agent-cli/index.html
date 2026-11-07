@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>agent-cli</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>agent-cli</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/agent-cli">https://github.com/aquaxis/agent-cli</a></p>
+<h2>Overview</h2>
+<p>agent-cli is a standalone Rust CLI that bundles a Claude Code-equivalent AI agent (tools / thinking / streaming REPL) into a single binary, without depending on tmux. Each process owns exactly one agent and talks to other agents over local Unix-domain-socket IPC.</p>
+<h2>Features</h2>
+<ul>
+<li>Claude Code-equivalent REPL with built-in tools and thinking, implemented from scratch</li>
+<li>Nine backends: `claude` / `claude-code` / `codex` / `codex-code` / `strata` / `ollama` / `opencode` / `opencode-go` / `llama.cpp`</li>
+<li>Multi-agent coordination via `/send` (report without a turn, or ask that waits for the answer)</li>
+<li>Detached agents (`spawn`/`stop`), groups, and persona files (YAML frontmatter + Markdown)</li>
+<li>Per-call permission rules in `[permissions]` (deny/allow lists of `tool(pattern)` rules)</li>
+<li>Custom slash commands, MCP client support, shell `! ` commands, mouse select/copy, scriptable one-shot/ask modes</li>
+</ul>
+<h2>Installation</h2>
+<p>One-liner:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/agent-cli/main/install.sh | sh
+</code></pre>
+<p>Build from source:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/agent-cli.git
+<br/>cd agent-cli
+<br/>cargo install --path . --root &quot;$HOME/.local&quot;
+</code></pre>
+<h2>Usage</h2>
+<p>Start the REPL: `agent-cli` (or `agent-cli run --provider claude`). Set the API key for your backend first, e.g. `export ANTHROPIC_API_KEY=...`. Useful subcommands: `spawn`, `ask`, `one-shot`, `list`, `doctor`, `selftest`.</p>
+<p>Scripted use: `echo "prompt" | agent-cli run`, or ask a running peer: `agent-cli ask <peer> "..."`. Inspect the config in force with `agent-cli config path`; sanity-check the installation with `agent-cli doctor`.</p>
+<h2>Notes</h2>
+<ul>
+<li>Linux (x86_64 / aarch64); self-update via `agent-cli update`; docs under `doc/`.</li>
+</ul>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

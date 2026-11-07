@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>athena</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>athena</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/athena">https://github.com/aquaxis/athena</a></p>
+<h2>Overview</h2>
+<p>ATHENA (Autonomous Task Hierarchy & Execution Network Architecture) is a system architecture that organizes multiple AI agents to carry out work requested in natural language. The Core Agent is itself an AI agent: it plans, delegates down a Director/Lead/Worker hierarchy, evaluates results, and re-plans when needed.</p>
+<h2>Features</h2>
+<ul>
+<li>Five execution units: `athena-api` (HTTP + SSE, port 8080), `athena-core` (Core Host library), `athena-runtime-agent-cli` (adapter + process manager), `athena` (CLI), `athena-studio` (WASM UI, port 5173)</li>
+<li>Authoritative state in a single `athena.db` (pure-Rust embedded `redb` store, ACID, file-backed)</li>
+<li>Spec-driven design (`spec/athena_spec_1.0.md`, requirement IDs `ATH-*`); dependency boundaries enforced in CI</li>
+<li>Per-project setup with `athena init` (generates `.athena/` and expands aiprj scaffolding)</li>
+<li>Conversational entry point `athena chat` with task progress, inline approvals, and clarifying questions</li>
+</ul>
+<h2>Installation</h2>
+<p>One-liner (builds and installs `athena` and `athena-api` onto PATH; requires the Rust toolchain):</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/athena/main/install.sh | sh
+</code></pre>
+<p>From an existing clone:</p>
+<pre><code>
+<br/>./install.sh
+<br/># or: cargo build --release   (binaries at ./target/release/)
+</code></pre>
+<h2>Usage</h2>
+<p>Initialize a project and start the Core API, then send work in natural language:</p>
+<pre><code>
+<br/>cd ~/projects/my-project
+<br/>athena init
+<br/>athena-api
+<br/># edit .athena/config.yaml: core.agent.provider / .model / .delegable_tools (explicit, ATH-AGENT-008 / ATH-SEC-024)
+<br/>athena run &quot;implement the TODO API&quot;
+<br/>athena status &amp;&amp; athena task list
+</code></pre>
+<p>Other commands: `athena chat`, `athena task show/cancel`, `athena plan show`, `athena approval list/approve/reject`, `athena skill list/show/register`; every command accepts `--json`. Secrets come from environment variables or a secret manager, never from `config.yaml` (ATH-CFG-005).</p>
+<h2>Notes</h2>
+<ul>
+<li>Implementation-status note from the README: some CLI verbs currently print the request they would send to the Core API.</li>
+</ul>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>rv_saturn</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>rv_saturn</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rv_saturn">https://github.com/aquaxis/rv_saturn</a></p>
+<h2>概要</h2>
+<p>RISC-V Saturn は、RISC-VソフトコアとSoC・デバッグ・FPGA実装一式から成るプロジェクトです。デュアルハート構成のマルチコアで、名称は土星(Saturn)のリングに由来します。</p>
+<h2>特徴</h2>
+<ul>
+<li>RV32I + RVV(Zve32xサブセット)実装、単一ステージコア</li>
+<li>デュアルハート — 各ハートが専有IMEM/DMEM、周辺バスのみ共有(ラウンドロビン調停)</li>
+<li>APB周辺: UART(GPIO内蔵)/QSPI/I2C/タイマ/PLIC/ハードウェアミューテックス</li>
+<li>AMD(Xilinx) Artix-7(Arty A7)向けFPGA実装一式</li>
+<li>Verilator RTLシミュレーションとOpenOCDによるJTAGデバック環境</li>
+<li>Dhrystone 22.059 DMIPS(0.662 DMIPS/MHz)/CoreMark 0.366 CoreMark/MHz(33.33MHz・-Oなし)</li>
+</ul>
+<h2>インストール</h2>
+<p>ツールチェーン(RISC-V GCC)とMakeベースのビルド:</p>
+<pre><code>git clone https://github.com/aquaxis/rv_saturn.git
+cd rv_saturn
+make -C apps gpio           # アプリのビルド
+make -C sim sim_fpga_verilator SCENARIO=gpio  # Verilatorシミュレーション</code></pre>
+<h2>使い方</h2>
+<p>シミュレーションは sim/ フロー([SIM] PASS が正常終了)、FPGAビルドは fpga/ の make artya7(またはトップMakefileのターゲット)で実行します。OpenOCDによるJTAGデバックは simocd/ を参照。</p>
+<h2>備考</h2>
+<ul>
+<li>��ュアルライセンス: GPL-3.0-or-later(ソース公開義務あり)または商用ライセンス</li>
+</ul>
+<h2>ライセンス</h2>
+<p>GPL-3.0-or-later / 商用ライセンス(デュアル)</p>
+</body></html>

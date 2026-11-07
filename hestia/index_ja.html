@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>hestia</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>hestia</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/hestia">https://github.com/aquaxis/hestia</a></p>
+<h2>概要</h2>
+<p>Hestia(ヘスティア)は、FPGA/ASIC/PCB/HAL/組込みソフトウェアの開発ツールを統合するAI駆動のハードウェア開発環境です。「Hardware Engineering Stack for Tool Integration and Automation」の頭文字です。9つのドメイン特化Conductor(エージェント)が agent-cli 互換のIPCで協調します。</p>
+<h2>特徴</h2>
+<ul>
+<li>9 Conductor アーキテクチャ(RTL/FPGA/ASIC/PCB/HAL/Apps/Debug/RAG の各ドメエージェント)</li>
+<li>agent-cli 互換IPCによる統一的なエージェント間通信</li>
+<li>仕様駆動開発 — 自然言語仕様からHDL・制約・テストベンチを動的生成</li>
+<li>ToolAdapter/VendorAdapter によるベンダ非依存のツール抽象化</li>
+<li>Podmanコンテナ実行とローカル実行の選択</li>
+</ul>
+<h2>インストール</h2>
+<p>ワンライナー:</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/aquaxis/hestia/main/install.sh | sh</code></pre>
+<h2>使い方</h2>
+<p>プロジェクトディレクトリで初期化し、各Conductorへ自然言語で指示します。設定例・詳細手順はリポジトリREADMEを参照してください。</p>
+<h2>備考</h2>
+<ul>
+<li>詳細は <a href="https://github.com/aquaxis/hestia">リポジトリREADME</a> を参照</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

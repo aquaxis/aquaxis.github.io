@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>debug_tools</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/embedded-hardware-applications/">Embedded &amp; Hardware Applications</a></p>
+<h1>debug_tools</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/debug_tools">https://github.com/aquaxis/debug_tools</a></p>
+<h2>Overview</h2>
+<p>Debug tools for FPGA: Linux utilities that read and write physical memory through `/dev/mem`, used to inspect and modify registers of an FPGA design from a running Linux host.</p>
+<h2>Features</h2>
+<ul>
+<li><code>memdump</code> — dump physical memory through <code>/dev/mem</code></li>
+<li><code>memwrite</code> — write values to physical addresses</li>
+<li>For inspecting and modifying FPGA registers from a running Linux host</li>
+</ul>
+<h2>Installation</h2>
+<pre><code>
+<br/>gcc -o memdump memdump.c
+<br/>gcc -o memwrite memwrite.c
+</code></pre>
+<h2>Usage</h2>
+<pre><code>
+<br/>./memdump ADDRESS(hex) NUM(dec)   # dump NUM words from ADDRESS
+<br/>./memwrite ADDRESS(hex) DATA(hex) # write DATA to ADDRESS
+</code></pre>
+<h2>Notes</h2>
+</body></html>

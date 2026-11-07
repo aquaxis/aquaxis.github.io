@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>ejtranslate</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>ejtranslate</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ejtranslate">https://github.com/aquaxis/ejtranslate</a></p>
+<h2>概要</h2>
+<p>ejtranslate はローカル Ollama サーバを使って英語と日本語を相互翻訳する小型の Rust CLI です。入力ファイルの言語を自動判定(ひらがな・カタカナ・漢字の走査)し、反対の言語へ翻訳します。既定モデルは `translategemma:12b`。</p>
+<h2>特徴</h2>
+<ul>
+<li>ソース言語の自動検出と反対言語への翻訳</li>
+<li>モデル選択対応: `translategemma:12b`(既定)/ `translategemma:4b` / `transgemma:e4b` ほか任意の Ollama モデル</li>
+<li>出力先の自動命名(`notes.md` → `notes_en.md` / `notes_ja.md`)</li>
+<li>リモート Ollama サーバ指定(`-H` / `$OLLAMA_HOST`)と上書きオプション(`-w`)</li>
+</ul>
+<h2>インストール</h2>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/ejtranslate/main/install.sh | sh
+<br/># または cargo で直接:
+<br/>cargo install --git https://github.com/aquaxis/ejtranslate ejtranslate
+</code></pre>
+<h2>使い方</h2>
+<p>事前に `ollama serve` とモデル取り込み(`ollama pull translategemma:12b`)が必要です。</p>
+<pre><code>
+<br/>ejtranslate notes.md              # 日本語 → notes_ja.md へ自動判定翻訳
+<br/>ejtranslate hello.md hello.ja.md  # 出力先を明示
+<br/>ejtranslate -m translategemma:4b notes.md
+<br/>ejtranslate notes.md --overwrite  # 既存出力を上書き
+</code></pre>
+<h2>備考</h2>
+<ul>
+<li>要件: Rust 1.75+、稼働中のローカル Ollama サーバ、翻訳モデル</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

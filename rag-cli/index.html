@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>rag-cli</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>rag-cli</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rag-cli">https://github.com/aquaxis/rag-cli</a></p>
+<h2>Overview</h2>
+<p>A self-contained, standalone local RAG (Retrieval-Augmented Generation) system built as a single Rust binary with an Hono-compatible REST API (`127.0.0.1:7777`) and a CLI. No Node.js runtime required.</p>
+<h2>Features</h2>
+<ul>
+<li>Multi-format offline ingestion: PDF / images / SVG / drawio / Markdown / plain text / web URLs</li>
+<li>Multilingual embeddings: `bge-m3` (1024 dim, switchable between Ollama / llama.cpp)</li>
+<li>Vector search: Qdrant v1.12.4 + HNSW Cosine + payload index</li>
+<li>Cross-encoder reranker: `bge-reranker-v2-m3-ONNX` (`ort` + `tokenizers` + `hf-hub`)</li>
+<li>LLM answer generation with source citations (`qwen2.5:7b-instruct`)</li>
+<li>Japanese-aware chunking: punctuation-prioritized recursive splitting + heading path prefixes</li>
+<li>REST API: `/health`, `/ingest`, `/ingest/upload`, `/search`, `/search/stream`, `/status`, `/reindex`</li>
+</ul>
+<h2>Installation</h2>
+<p>Build a local binary:</p>
+<pre><code>
+<br/>cargo build --release        # -&gt; ./target/release/rag-cli
+</code></pre>
+<p>Install system-wide:</p>
+<pre><code>
+<br/>cargo install --path crates/cli    # -&gt; ~/.cargo/bin/rag-cli
+</code></pre>
+<p>Start the external services (optional, via Podman):</p>
+<pre><code>
+<br/>podman compose up -d
+<br/>podman exec rag-ollama ollama pull bge-m3
+<br/>podman exec rag-ollama ollama pull qwen2.5:7b-instruct
+</code></pre>
+<p>Configuration is via environment variables in `.env` (copy from `.env.example`); defaults bind to `127.0.0.1` and are sufficient to start. The first reranked search downloads the reranker model (~600 MB).</p>
+<h2>Usage</h2>
+<pre><code>
+<br/>rag-cli ingest data/md/note.md
+<br/>rag-cli search &quot;What is the summary of the sample memo?&quot; --top-n 3 --no-rerank
+<br/>rag-cli serve --port 7777
+<br/>rag-cli status
+<br/>rag-cli reindex
+</code></pre>
+<p>The full workflow and model pull steps are in the repository's `doc/02-quickstart.md`; CLI details in `doc/03-cli.md`, REST API in `doc/04-rest-api.md`, and configuration in `doc/05-configuration.md`.</p>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

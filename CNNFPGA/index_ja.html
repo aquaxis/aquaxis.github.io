@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>CNNFPGA</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>CNNFPGA</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/CNNFPGA">https://github.com/aquaxis/CNNFPGA</a></p>
+<h2>概要</h2>
+<p>「ソフトウェア技術者のためのFPGA入門 機械学習編」のSDSoC 2017.2ワークフォルダです。リポジトリをクローンし、SDSoCに取り込んで使用します。</p>
+<h2>特徴</h2>
+<ul>
+<li>SDSoC 2017.2 用のワークフォルダ</li>
+<li>起動時に Workspace としてクローン先を指定して使用</li>
+<li>File > Open Projects from File Systems でプロジェクトを取込み</li>
+</ul>
+<h2>インストール</h2>
+<p>リポジトリのクローン後に SDSoC を起動:</p>
+<pre><code>git clone https://github.com/aquaxis/CNNFPGA.git</code></pre>
+<h2>使い方</h2>
+<p>SDSoC起動時に Workspace として本フォルダを指定し、Import Projects で CNN_Test0〜40 のプロジェクトを取込みます。各ケースは CNN 処理の FPGA 化を段階的に示します(mem_attribute/access_pattern プラグマ、Convolution/Pooling/CNNLayer 関数の FPGA 化、パイプライン/全展開、CNN 全体、ZCU102 ケース)。詳細は <a href="https://github.com/aquaxis/CNNFPGA">リポジトリREADME</a>。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: リポジトリに明記がありません。</li>
+</ul>
+</body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>agent-cli</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>agent-cli</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/agent-cli">https://github.com/aquaxis/agent-cli</a></p>
+<h2>概要</h2>
+<p>agent-cli は、Claude Code 相当の AI エージェント REPL を 1 バイナリにまとめたスタンドアロンの Rust CLI です。組み込みツール、9 種類のプロバイダバックエンド、マルチエージェント IPC、ペルソナ/グループ/デタッチド・エージェントを備えます。</p>
+<h2>特徴</h2>
+<ul>
+<li>スタンドアロン — tmux不要、単一バイナリで動作</li>
+<li>9バックエンド(claude codex ollama opencode llama.cpp strata など)</li>
+<li>UnixソケットIPCによるマルチエージェント連携 (`/send` `/ask`)</li>
+<li>デタッチドエージェント (`spawn` / `stop`) とグループ管理</li>
+<li>ペルソナファイル(YAML+Markdown)による役割定義</li>
+<li>パーミッションルール(deny/allow)とレイヤード設定(TOML)</li>
+<li>カスタムスラッシュコマンド、MCPクライアント対応</li>
+</ul>
+<h2>インストール</h2>
+<p>一行で:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/agent-cli/main/install.sh | sh
+</code></pre>
+<p>ソースから:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/agent-cli.git
+<br/>cd agent-cli
+<br/>cargo install --path . --root &quot;$HOME/.local&quot;
+</code></pre>
+<p>Linux (x86_64 / aarch64) 向け。設定は `~/.config/agent-cli/config.toml` に初回起動時に自動生成されます。</p>
+<h2>使い方</h2>
+<pre><code>
+<br/>agent-cli                          # REPL起動(provider.kind を使用)
+<br/>agent-cli run --provider ollama     # バックエンド指定
+<br/>agent-cli spawn --name worker      # デタッチドエージェント
+<br/>agent-cli ask worker &quot;質問文&quot;      # 起動済みエージェントへ一問一答
+<br/>agent-cli doctor                   # セルフ診断
+</code></pre>
+<p>REPL 内では `/send` `/spawn` `/list` `/auto on` などのコマンド、プロンプトへは `! ` でシェル直実行が使えます。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: リポジトリ参照</li>
+<li>詳細は [GitHub README](https://github.com/aquaxis/agent-cli) を参照してください。</li>
+</ul>
+</body></html>

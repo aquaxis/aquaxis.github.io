@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>CNNFPGA</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>CNNFPGA</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/CNNFPGA">https://github.com/aquaxis/CNNFPGA</a></p>
+<h2>Overview</h2>
+<p>Working folder of the book "FPGA introduction for software engineers — machine learning edition": SDSoC 2017.2 projects (CNN_Test0–CNN_Test50) that walk from software-only builds to full FPGA acceleration of the CNN layers, case by case.</p>
+<h2>Features</h2>
+<ul>
+<li>SDSoC 2017.2 workspace projects for the book's machine-learning exercises</li>
+<li>Clone or download and import into SDSoC to follow the book step by step</li>
+<li>Book companion: build the examples exactly as printed</li>
+</ul>
+<h2>Installation</h2>
+<p>Clone the repository and open it as the SDSoC workspace:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/CNNFPGA.git
+</code></pre>
+<p>Then start SDSoC 2017.2 and select the cloned folder as the workspace (File → Switch Workspace → Other…), and import the projects via File → Open Projects from File Systems….</p>
+<h2>Usage</h2>
+<p>Use alongside the book: each project (CNN_Test0–40) is imported into the SDSoC workspace and built as described — the cases step through FPGA-izing the CNN layers (mem_attribute/access_pattern pragmas, Convolution/Pooling/CNNLayer functions, pipelining/unrolling, full CNN, and the ZCU102 case). Requires the SDSoC 2017.2 toolchain (Xilinx).</p>
+<h2>Notes</h2>
+<ul>
+<li>License: not specified in the repository.</li>
+</ul>
+</body></html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>meta-aquaxis</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/embedded-hardware-applications/">Embedded &amp; Hardware Applications</a></p>
+<h1>meta-aquaxis</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/meta-aquaxis">https://github.com/aquaxis/meta-aquaxis</a></p>
+<h2>Overview</h2>
+<p>A Yocto Project layer providing recipes and build instructions for the Ultra96V2 board: PMU firmware, a Linux distribution, SD-card image creation, and SDK generation.</p>
+<h2>Features</h2>
+<ul>
+<li>Yocto layer targeting Ultra96V2 (Zynq UltraScale+ MPSoC)</li>
+<li>PMU firmware build flow (`bitbake pmu-firmware`)</li>
+<li>Linux distribution build (`core-image-minimal`)</li>
+<li>SD-card image creation scripts (`mkbootbin.sh`, `mksdcard.sh`)</li>
+<li>SDK generation via `populate_sdk`</li>
+</ul>
+<h2>Installation</h2>
+<p>Create a work directory, then download and build:</p>
+<pre><code>
+<br/>mkdir &lt;BUILD_DIR&gt;
+<br/>cd &lt;BUILD_DIR&gt;
+<br/>git clone https://github.com/aquaxis/meta-aquaxis
+<br/>./meta-aquaxis/create_env.sh
+<br/>source ./poky/oe-init-build-env ../build_pmu-firmware/
+<br/>bitbake pmu-firmware
+<br/>cd ../
+<br/>source ./poky/oe-init-build-env ../build_ultra96v2/
+<br/>mv ../build_pmu-firmware/pmutmp-glibc ./pmutmp
+<br/>bitbake core-image-minimal
+</code></pre>
+<h2>Usage</h2>
+<p>Create the SD-card image from `build_ultra96v2` (build `fsbl.elf` yourself in Vitis first):</p>
+<pre><code>
+<br/>cd sd_card
+<br/>./mkbootbin.sh
+<br/>./mksdcard.sh
+</code></pre>
+<p>Build and install the SDK:</p>
+<pre><code>
+<br/>bitbake core-image-minimal -c populate_sdk
+<br/>./poky-glibc-x86_64-core-image-minimal-aarch64-ultra96v2-toolchain-3.0.2.sh
+</code></pre>
+<h2>Notes</h2>
+<ul>
+<li>Requires the Yocto/Poky build environment (oe-init-build-env) and Vitis for `fsbl.elf`.</li>
+<li>License: see the repository.</li>
+</ul>
+</body></html>

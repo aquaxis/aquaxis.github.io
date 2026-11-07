@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>meta-aquaxis</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a></p>
+<h1>meta-aquaxis</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/meta-aquaxis">https://github.com/aquaxis/meta-aquaxis</a></p>
+<h2>概要</h2>
+<p>Ultra96V2 用の Yocto Project レイヤー(meta-aquaxis)。PMU ファームウェア・Linux ディストリビューション・SDカードイメージ・SDK の構成を提供します。</p>
+<h2>特徴</h2>
+<ul>
+<li>Ultra96V2 対応レシピ/構成</li>
+<li>PMU ファームウェア・core-image-minimal ビルド手順</li>
+<li>SDカードイメージ生成(mkbootbin/mksdcard スクリプト)</li>
+<li>SDK 生成(populate_sdk)</li>
+</ul>
+<h2>インストール</h2>
+<p>Yocto ビルド環境の作成とビルド:</p>
+<pre><code>git clone https://github.com/aquaxis/meta-aquaxis.git
+./meta-aquaxis/create_env.sh
+source ./poky/ oe-init-build-env ../build_pmu-firmware/</code></pre>
+<h2>使い方</h2>
+<p>詳細な手順は <a href="https://github.com/aquaxis/meta-aquaxis">リポジトリREADME</a> を参照してください。</p>
+</body></html>

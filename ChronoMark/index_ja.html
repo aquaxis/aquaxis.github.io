@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>ChronoMark</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>ChronoMark</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ChronoMark">https://github.com/aquaxis/ChronoMark</a></p>
+<h2>概要</h2>
+<p>ChronoMark は Markdown でタスクを管理し、ガントチャートで表示する Web アプリです。タスク1件が Markdown ファイル1つで、テキストのまま編集・Gitで履歴管理でき、ブラウザ上でガントチャートとして操作できます。バックエンドは Node.js / TypeScript。</p>
+<h2>特徴</h2>
+<ul>
+<li>Markdown が唯一の正 — 1タスク=1ファイル、データベースなし、履歴と差分は Git</li>
+<li>jQueryGantt 本体同梱 — 依存関係・階層・進捗・マイルストーンを直接編集、自動保存</li>
+<li>プロパティフォームと `.md` 直接編集の2方式、Obsidian風ライブプレビュー</li>
+<li>階層はディレクトリ構造そのもの、参照は常に不変な uid(ULID)</li>
+<li>外部ツール(jQueryGantt / Redmine / GitHub Projects / Backlog)からの正規化取り込み</li>
+<li>ファイル変更の検知と全画面への即時反映(WebSocket)</li>
+</ul>
+<h2>インストール</h2>
+<pre><code>
+<br/>./setup.sh    # Node.js 20以上の確認、依存インストール、動作確認
+<br/>npm start     # http://localhost:4000 で起動(データは ./data)
+</code></pre>
+<h2>使い方</h2>
+<pre><code>
+<br/>npm run project:create -- &lt;name&gt;   # プロジェクト作成(再起動不要)
+<br/>npm run sample:create             # READMEのサンプルデータを作成
+<br/>npm run import:gantt -- &lt;name&gt;     # jQueryGanttエクスポートを取り込み
+</code></pre>
+<p>起動後は Explorer(タスクツリー)→ 編集画面(フォーム / ライブ `.md`)→ ガントチャートの画面で操作します。全操作は HTTP API 経由で、ブラウザがファイルを直接触ることはありません。</p>
+<h2>備考</h2>
+<ul>
+<li>バージョン 0.10.0、セマンティックバージョニング、詳細ドキュメントは `doc/`</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT(同梱ライブラリ jQueryGantt ほかは各ライセンスに従う)</p>
+</body></html>

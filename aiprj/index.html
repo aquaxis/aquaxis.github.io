@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>aiprj</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>aiprj</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/aiprj">https://github.com/aquaxis/aiprj</a></p>
+<h2>Overview</h2>
+<p>aiprj is a project management tool for Claude Code, OpenAI Codex CLI, and other agent CLIs. It deploys AI operation guidelines and a document structure (requirements, design, tasks) to a target directory with a single command, so AI agents work against a consistent set of project documents.</p>
+<h2>Features</h2>
+<ul>
+<li>Definition of AI operation guidelines and rules (`.aiprj/rules/`)</li>
+<li>Document structure for requirements, design specifications, and task lists</li>
+<li>Slash commands for Claude Code (`/setup_ai`, `/ai`, `/update_ai`, `/next_ai`, `/close_ai`)</li>
+<li>Codex CLI skills (`$setup-ai`, `$ai`, `$update-ai`, `$next-ai`, `$close-ai`) and equivalent commands for other agent CLIs</li>
+<li>Automatic work log saving to `.aiprj/AI_LOG/yyyy-MM-dd_NNN.md` (sequential, no overwriting; each log embeds the instructions state)</li>
+</ul>
+<h2>Installation</h2>
+<p>Setup in the current directory:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/aiprj/main/install.sh | sh
+</code></pre>
+<p>Setup in a specified directory:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/aiprj/main/install.sh | sh -s -- &lt;directory_name&gt;
+</code></pre>
+<p>Manual setup: clone the repository and run `./install.sh <target_directory>`. The installer creates `.aiprj/` (rules and an `instructions.md` placeholder), `.claude/` commands, `.agent-cli/` commands/config, and `.agents/skills/` for Codex; it never overwrites an existing `.aiprj/instructions.md`. Uninstall with `./install.sh -u <target_directory>`.</p>
+<h2>Usage</h2>
+<p>Typical flow after editing `.aiprj/instructions.md` (the single source of truth for what to build):</p>
+<p>Change direction by editing `instructions.md` and re-running `/update_ai` — do not hand-edit the `AI_PRJ_*.md` documents. The three documents are kept mutually consistent by the tools.</p>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

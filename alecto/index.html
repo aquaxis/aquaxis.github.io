@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>alecto</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>alecto</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/alecto">https://github.com/aquaxis/alecto</a></p>
+<h2>Overview</h2>
+<p>Alecto (Autonomous Logic Executor for Complex Task Operations) is a tool-extendable AI chat CLI application that combines a local Ollama LLM with MCP (Model Context Protocol) servers for tool calling such as file operations and web search.</p>
+<h2>Features</h2>
+<ul>
+<li>Chat with local LLMs served by Ollama (`ollama serve`)</li>
+<li>Tool calling through MCP servers — filesystem, web search (DuckDuckGo MCP server), or any MCP-compatible server</li>
+<li>Extendable tool system: add servers in `.alecto/config.json` (`mcpServers`)</li>
+<li>Model selection: pull any model with `ollama pull` (README examples: `ministral:3b`)</li>
+<li>Simple Makefile development workflow (`make setup` / `build` / `dev` / `install`)</li>
+</ul>
+<h2>Installation</h2>
+<p>Prerequisites: Node.js 18+, npm, and Ollama.</p>
+<pre><code>
+<br/># 1. Install Ollama
+<br/>curl -fsSL https://ollama.com/install.sh | sh
+<br/>
+<br/># 2. Download a model
+<br/>ollama pull ministral:3b
+<br/>
+<br/># 3. Install dependencies
+<br/>make setup
+</code></pre>
+<h2>Usage</h2>
+<p>Start the Ollama server, then the app; type a message and press Enter (`exit` to quit):</p>
+<pre><code>
+<br/>ollama serve
+<br/>npm start
+</code></pre>
+<p>Configuration lives in `.alecto/config.json` — `mcpServers` (per-server `command`/`args`) and `ollama.host` / `ollama.model`. See the README for example MCP server setups (filesystem, gemini-cli, duckduckgo).</p>
+<h2>License</h2>
+<p>ISC</p>
+</body></html>

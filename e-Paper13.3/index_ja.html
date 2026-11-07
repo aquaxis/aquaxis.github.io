@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>e-Paper13.3</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a></p>
+<h1>e-Paper13.3</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/e-Paper13.3">https://github.com/aquaxis/e-Paper13.3</a></p>
+<h2>概要</h2>
+<p>Raspberry Pi 上で13.3インチの e-Paper ディスプレイに画像を表示する C 言語プログラムです。BCM2835 ライブラリを利用してハードウェアを直接制御します。</p>
+<h2>特徴</h2>
+<ul>
+<li>13.3インチ e-Paper 対応、BMP/PNG 画像読込み表示</li>
+<li>6色 カラー表示対応</li>
+<li>割込み処理(Ctrl+C)による安全な終了処理</li>
+<li>依存: libpng、BCM2835 ライブラリ</li>
+</ul>
+<h2>インストール</h2>
+<p>依存ライブラリのインストール後にビルドします:</p>
+<pre><code>sudo apt-get install -y libpng-dev build-essential
+make</code></pre>
+<h2>使い方</h2>
+<p>管理者権限で実行し、画像ファイル(BMP/PNG)へのパスを渡します(例: <code>sudo ./epd path/to/image.png</code>。BCM2835 ライブラリの仕様上 sudo が必要)。終了時(正常終了・Ctrl+C 含む)はディスプレイ保護のため自動的にスリープモードへ移行します。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: MIT</li>
+</ul>
+</body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>vsync</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>vsync</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/vsync">https://github.com/aquaxis/vsync</a></p>
+<h2>Overview</h2>
+<p>VSync (RISC-**V**ertical **SYNC**) is an FPGA-targeted RISC-V RV32IM SoC with a real-time OS implemented in hardware and a POSIX-style interface at the hardware level. SystemVerilog design targeting Xilinx Artix UltraScale+ and Artix-7.</p>
+<h2>Features</h2>
+<ul>
+<li>**RISC-V RV32IM**: 5-stage pipeline (Fetch/Decode/Execute/Memory/Writeback)</li>
+<li>**Hardware RTOS**: task management, scheduling, and context switching implemented in hardware</li>
+<li>**POSIX compatible**: pthread, semaphore, mutex, message queue, and file I/O supported at hardware level</li>
+<li>**Bus architecture**: AXI4 → APB bridge for peripheral connection</li>
+<li>**Peripherals**: UART, GPIO, HyperRAM, PLIC, CLINT</li>
+<li>**Memory protection**: PMP (Physical Memory Protection) unit</li>
+<li>**UART program loading**: `load`/`go` shell commands for program download via UART</li>
+</ul>
+<h2>Installation</h2>
+<p>Clone the repository and build with Vivado:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/vsync.git
+<br/>cd vsync
+</code></pre>
+<p>Use the provided Vivado project/scripts for Artix UltraScale+ or Artix-7 targets (see the repository README for build details).</p>
+<h2>Usage</h2>
+<p>Work the RTL in Verilator/Vivado simulation, load programs over the UART shell (`load`/`go`), and develop POSIX-style multithreaded applications against the hardware RTOS. See the repository README for the full workflow.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: see the repository (LICENSE file).</li>
+</ul>
+</body></html>

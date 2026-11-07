@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>iris</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>iris</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/iris">https://github.com/aquaxis/iris</a></p>
+<h2>Overview</h2>
+<p>IRIS (Immutable RTL, Intentional Semantics) is a hardware description language for combinational and sequential circuits, designed to be readable and writable by both humans and AI. It takes Rust's design philosophy to hardware: against SystemVerilog's roughly 220 reserved words, IRIS provides the expressiveness RTL design needs with 58 keywords.</p>
+<h2>Features</h2>
+<ul>
+<li>Safety first — no implicit type conversion; bit-width mismatches are compile errors</li>
+<li>Explicit over implicit — intent is expressed clearly in code; unified assignment operators (`=` for blocking, `<=` for non-blocking) and `{}` notation</li>
+<li>FSM description with states, transitions (`goto`), and output encoding</li>
+<li>Combinational (`comb`) and synchronous (`sync`) blocks; `mem` declarations for RAM/ROM; `interface`, `enum`, `struct`, `union`, and packages</li>
+<li>Simulation in interpreter or compiler mode (the compiled binary runs an order of magnitude faster); VCD output with array dumping</li>
+<li>Transpilers both ways — IRIS↔SystemVerilog and IRIS↔Veryl — with diagnostics instead of silent drops</li>
+<li>Formal equivalence verification: all example designs are formally proven equivalent to their SystemVerilog conversion</li>
+<li>Tooling: formatter, linter, Language Server with a VSCode extension, and a browser block-diagram viewer</li>
+</ul>
+<h2>Installation</h2>
+<p>IRIS is built from source with a Rust toolchain; Node.js is needed only for the browser viewer and the VSCode extension build.</p>
+<pre><code>
+<br/># Simulator
+<br/>cd sim/iris-sim
+<br/>cargo build --release
+<br/>
+<br/># Command-line tools (transpilers, formatter, LSP, unified frontend)
+<br/>cargo build --release --manifest-path tools/iris-rs/Cargo.toml
+<br/>cargo build --release --manifest-path tools/iris2sv-rs/Cargo.toml
+<br/>cargo build --release --manifest-path tools/sv2iris-rs/Cargo.toml
+<br/>cargo build --release --manifest-path tools/irisfmt-rs/Cargo.toml
+<br/>cargo build --release --manifest-path tools/irisfmt-lsp-rs/Cargo.toml
+</code></pre>
+<h2>Usage</h2>
+<p>The unified frontend `iris` dispatches each tool as a subcommand:</p>
+<pre><code>
+<br/>iris sim -i design.iris -o out.vcd -c 100      # simulate (interpreter)
+<br/>iris compile -i design.iris -o sim --release   # compile to a native simulator
+<br/>iris sv design.iris                            # convert IRIS to SystemVerilog
+<br/>iris from-sv design.sv                         # convert SystemVerilog to IRIS
+<br/>iris fmt design.iris                           # format
+<br/>iris lint design.iris                          # style check
+<br/>iris lsp                                       # Language Server
+<br/>iris formal -i design.iris -o out/             # produce a reference model for formal verification
+<br/>iris schematic                                 # browser block-diagram viewer (npm dev server)
+</code></pre>
+<p>Example designs (async FIFO, RV32I processor, counter, ALU, decoder, register file) run identically in interpreter, compiler, and Verilator modes. The complete 21-chapter language specification is in `spec/iris_spec.md`; comparison documents for SystemVerilog and Veryl are in `doc/`.</p>
+<h2>Notes</h2>
+<ul>
+<li>Version 0.8.0 (development); targets IEEE 1800-2017 compliance.</li>
+<li>License: MIT.</li>
+<li>Language: TypeScript/Rust. Homepage: <https://aquaxis.github.io/iris/> (see the repository).</li>
+<li>IRIS is the annotation language also supported by [shiori](/shiori/), and its sources can be visualized with [ModView](/ModView/).</li>
+</ul>
+</body></html>

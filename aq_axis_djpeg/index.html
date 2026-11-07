@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>aq_axis_djpeg</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>aq_axis_djpeg</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/aq_axis_djpeg">https://github.com/aquaxis/aq_axis_djpeg</a></p>
+<h2>Overview</h2>
+<p>AXIS JPEG Decoder is a JPEG baseline decoder IP with JPEG stream input and blocked pixel-stream output, both using AXI-Stream interfaces, and an AXI-Lite monitoring interface. It is designed for decoding baseline JPEG images as well as the first layer of progressive JPEGs.</p>
+<h2>Features</h2>
+<ul>
+<li>ISO/IEC 10918-1 compliant JPEG baseline decoding</li>
+<li>Supports up to 64K × 64K image resolution</li>
+<li>Dynamic quantization and Huffman tables; automatic JPEG header extraction for tables and image properties</li>
+<li>Supports YCbCr 4:4:4, 4:2:2H, 4:2:2V, 4:2:0 and monochrome inputs, plus first-layer progressive extraction, DRI labels and restarts</li>
+<li>I/O AXI-Stream interfaces with full flow control, and an AXI-Lite monitoring interface</li>
+</ul>
+<h2>Installation</h2>
+<p>Clone the repository and add the RTL to your Vivado project:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/aq_axis_djpeg.git
+</code></pre>
+<h2>Usage</h2>
+<p>Provide a JPEG data stream on the AXI-Stream input interface; the pixel stream and pixel position stream are extracted through the AXI-Stream output's TDATA and TUSER channels. Image size, color components, and baseline/progressive information are extracted automatically from the JPEG header. Refer to the repository README for integration details.</p>
+<h2>Notes</h2>
+<ul>
+<li>Language: Verilog.</li>
+</ul>
+<p>===</p>
+</body></html>

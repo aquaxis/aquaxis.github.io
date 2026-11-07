@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>layers</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>Layers</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/layers">https://github.com/aquaxis/layers</a></p>
+<h2>概要</h2>
+<p>Layers（Logic Aligned Yet Expressive Role System）は、ゲーム・ソフトウェア開発組織の組織構造を模した14エージェントの階層型マルチエージェントシステムです。tmux + Claude Code CLI、または agent-cli のスタンドアロンプロセスをバックエンドとして実行できます。</p>
+<h2>特徴</h2>
+<ul>
+<li>**デュアルバックエンド** — Claude Code CLI（tmux）または agent-cli（スタンドアロンプロセス）でエージェントを実行</li>
+<li>**14の階層エージェント** — Producer / Director / リード3名（設計・プログラム・QA）/ 下位ワーカーで構成される開発組織構造</li>
+<li>**エージェント間通信** — tmux send-keys（Claude CLI）または send_to ツール（agent-cli IPC）</li>
+<li>**リアルタイム監視** — 全エージェントの状態と最新アクティビティを表示するダッシュボード（`pnpm run monitor` / `pnpm run live`）</li>
+<li>**依存の自動インストール** — Node.js、pnpm、tmux、必要に応じて agent-cli を自動導入</li>
+</ul>
+<h2>インストール</h2>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/layers/main/install.sh | sh
+</code></pre>
+<p>手動の場合:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/layers.git
+<br/>cd layers
+<br/>pnpm install
+<br/>pnpm run build
+<br/>pnpm run status
+</code></pre>
+<p>前提条件: Git、Node.js 20.x LTS 以降、pnpm。Claude CLI バックエンドには tmux 3.x 以上と Claude Code CLI、agent-cli バックエンドには agent-cli が必要です。Windows では WSL2 を使用してください。</p>
+<h2>使い方</h2>
+<pre><code>
+<br/>pnpm run start                          # Claude Code CLI バックエンド（既定）
+<br/>pnpm run start -- --backend agent-cli   # agent-cli バックエンド
+<br/>pnpm run stop                           # 全エージェント停止
+<br/>pnpm run status                         # 状態確認
+<br/>pnpm run live                           # リアルタイムダッシュボード
+</code></pre>
+<p>エージェント構成は `.layers/src/config/agents.json`、agent-cli バックエンドのペルソナは `.layers/personas/*.md`（YAMLフロントマター + 本文）で定義します。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: MIT</li>
+<li>14エージェントの同時実行は大量のAPI呼び出しを生むため、必要なエージェントだけを起動することを推奨</li>
+</ul>
+</body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ejtranslate</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>ejtranslate</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ejtranslate">https://github.com/aquaxis/ejtranslate</a></p>
+<h2>Overview</h2>
+<p>A small Rust CLI that translates between English and Japanese using a local [Ollama](https://ollama.com) server. The source language is detected from the input file, and the model translates into the opposite language.</p>
+<h2>Features</h2>
+<ul>
+<li>Automatic source-language detection (Hiragana/Katakana/Kanji → Japanese; anything else → English)</li>
+<li>Any Ollama model selectable with `-m`/`--model`; documented models: `translategemma:12b` (default), `translategemma:4b`, `transgemma:e4b`</li>
+<li>Output path derived automatically (`notes.md` → `notes_en.md` / `notes_ja.md`) or given explicitly</li>
+<li>Configurable Ollama host via `-H`/`--host` or `$OLLAMA_HOST`</li>
+</ul>
+<h2>Installation</h2>
+<p>One-liner (builds from source via `cargo install`):</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/ejtranslate/main/install.sh | sh
+</code></pre>
+<p>Alternatives:</p>
+<pre><code>
+<br/>cargo install --git https://github.com/aquaxis/ejtranslate ejtranslate
+<br/># or from a local checkout:
+<br/>git clone https://github.com/aquaxis/ejtranslate.git
+<br/>cd ejtranslate
+<br/>cargo install --path .
+</code></pre>
+<p>Prerequisites: Rust toolchain (stable, 1.75+) and a running Ollama server with the model pulled:</p>
+<pre><code>
+<br/>ollama pull translategemma:12b
+</code></pre>
+<h2>Usage</h2>
+<pre><code>
+<br/>ejtranslate notes.md                     # Japanese input -&gt; notes_en.md
+<br/>ejtranslate hello.md hello.ja.md         # English input -&gt; explicit output path
+<br/>ejtranslate notes.md --overwrite         # replace an existing output file
+<br/>OLLAMA_HOST=http://my-ollama:11434 ejtranslate notes.md
+</code></pre>
+<h2>License</h2>
+<p>MIT. Copyright ©AQUAXIS TECHNOLOGY 2026.</p>
+</body></html>

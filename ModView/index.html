@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ModView</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>ModView</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/ModView">https://github.com/aquaxis/ModView</a></p>
+<h2>Overview</h2>
+<p>ModView is a SystemVerilog module interconnection viewer: a lightweight, OSS-only web application that parses RTL and draws how modules are wired together as a diagram you can rearrange and save. It needs no commercial RTL viewer licence — point it at a folder of `.sv`/`.v` files and read the design in a browser.</p>
+<h2>Features</h2>
+<ul>
+<li>Parses with Verible: modules, ports, bus widths, parameters, instances, and connections, including SystemVerilog `interface`/`modport` declarations.</li>
+<li>Infers wiring from nets, not naming conventions — ports bound to the same signal form a net with one chosen driver; un-uploaded submodules still appear with inferred port directions.</li>
+<li>Automatic layered left-to-right layout with orthogonal edge routing by ELK.js, so lines avoid node bodies and each other.</li>
+<li>Shows hierarchy in place: instances containing instances are drawn as nested containers; interface buses collapse into one expandable, colour-coded trunk link.</li>
+<li>Editable diagrams — drag nodes and every drop re-routes the connections; the layout can be saved as JSON and loaded back (Ctrl+S / Ctrl+O).</li>
+<li>Bundled example design: a 12-module baseline JPEG encoder connected by AXI4-Stream, used in the repository's walkthrough.</li>
+</ul>
+<h2>Installation</h2>
+<p>Quick start with Docker:</p>
+<pre><code>
+<br/>docker compose up --build
+<br/># Frontend: http://localhost:5173 — backend API: http://localhost:8000
+</code></pre>
+<p>Local development (requires `verible-verilog-syntax` on `PATH`):</p>
+<pre><code>
+<br/># Backend
+<br/>cd backend
+<br/>uv venv &amp;&amp; uv pip install -e &quot;.[dev]&quot;
+<br/>uv run uvicorn app.main:app --reload --port 8000
+<br/>
+<br/># Frontend
+<br/>cd frontend
+<br/>pnpm install --ignore-workspace
+<br/>pnpm dev    # http://localhost:5173, proxies /api to :8000
+</code></pre>
+<h2>Usage</h2>
+<p>1. Click **Select Folder** and pick a directory of `.sv`/`.v` files (up to 20,000 files, 50 MB each, 500 MB total).</p>
+<p>2. Click **Parse** — the sidebar fills with modules and the top-module dropdown groups *Top candidates* vs *Other modules*.</p>
+<p>3. Pick a top module and read the diagram; zoom with the wheel or `+`/`−`, frame with **Fit**.</p>
+<p>4. Unlock editing to drag nodes (each drop re-routes connections), use **Re-layout** to restore ELK's automatic arrangement, and **Save** the layout as JSON.</p>
+<p>Parse errors are non-fatal: modules that still parse are rendered, and the error list opens from the status bar with file, line, and column.</p>
+<h2>Notes</h2>
+<ul>
+<li>ModView's own source is MIT-licensed; third-party components (Verible Apache-2.0, JointJS MPL-2.0, ELK.js EPL-2.0) are used unmodified or keep their original headers.</li>
+<li>SemVer applies; `GET /api/health` reports the running backend version, and CHANGELOG.md records each release.</li>
+<li>Documentation: [architecture](https://github.com/aquaxis/ModView/blob/main/docs/architecture.md) · [HTTP API](https://github.com/aquaxis/ModView/blob/main/docs/api.md) (Japanese editions included).</li>
+</ul>
+</body></html>

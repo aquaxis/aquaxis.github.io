@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>c105</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>c105</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/c105">https://github.com/aquaxis/c105</a></p>
+<h2>Overview</h2>
+<p>Sample source code of the C105 doujinshi book on FPGA development (chapters: first FPGA development, beacon circuit, and RISC-V). The PDF edition is sold on <a href="https://aquaxis.booth.pm/items/6386585">Booth</a>.</p>
+<h2>Features</h2>
+<ul>
+<li>Complete sample RTL per chapter: adder (ch. 7), beacon circuit (ch. 10), and RISC-V (ch. 11)</li>
+<li>Vivado build setups: Makefile-driven logic synthesis, place & route, and bitstream generation scripts</li>
+<li>Constraints (`xdc`) and testbenches included for each design</li>
+</ul>
+<h2>Installation</h2>
+<p>Clone the repository and build a chapter with its Makefile:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/c105.git
+<br/>cd c105/01_adder/build
+<br/>make
+</code></pre>
+<p>Requires Xilinx Vivado (the `vivado` command must be on `PATH`).</p>
+<h2>Usage</h2>
+<p>Each chapter folder (`01_adder`, …) contains `rtl/`, `build/`, and `script/`: edit the RTL, run `make` in the chapter's `build/` directory, and write the generated bitstream to your FPGA board as described in the book.</p>
+<h2>Notes</h2>
+<p>License: MIT (see the LICENSE file in the repository).</p>
+</body></html>

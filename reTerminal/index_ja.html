@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>reTerminal</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a></p>
+<h1>reTerminal</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/reTerminal">https://github.com/aquaxis/reTerminal</a></p>
+<h2>概要</h2>
+<p>XIAO-ESP32-S3 を使用して reTerminal E1002 の7.3インチ e-Paper ディスプレイ(GDEP073E01)を制御する ESP-IDF アプリケーションです。</p>
+<h2>特徴</h2>
+<ul>
+<li>GDEP073E01(7.3インチ E-Ink Spectra6 フルカラーePaper、800x480px)対応</li>
+<li>XIAO-ESP32-S3 マイコンボード対応</li>
+<li>ESP-IDF v5.0 以降 / 3.3V(USB-C)電源</li>
+</ul>
+<h2>インストール</h2>
+<p>ESP-IDF の環境構築後、ビルドします:</p>
+<pre><code>git clone https://github.com/aquaxis/reTerminal.git
+cd reTerminal
+idf.py set-target esp32s3
+idf.py build</code></pre>
+<h2>使い方</h2>
+<p><code>idf.py -p /dev/ttyUSB0 flash monitor</code> で書込み・動作確認を行います。WiFi設定は SDカード上の <code>config</code> ファイル(SSID/PASSWORD等)で行い、接続後は ESP32 上で HTTPサーバーが自動起動し、ブラウザからファイル一覧・アップロード・e-Paper表示更新(<code>POST /api/update</code>)を利用できます。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: リポジトリに明記がありません。</li>
+</ul>
+</body></html>

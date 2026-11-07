@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>mnemo</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>Mnemo</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/mnemo">https://github.com/aquaxis/mnemo</a></p>
+<h2>概要</h2>
+<p>Mnemo は、Markdown ベースの統合ナレッジデータベースです（「記憶と知識の万能アーカイブ」— 名前は記憶の女神ムネモシュネに由来）。Obsidian 風のライブメモ編集、Wiki、AI エージェントによる Web 収集、AI チャット（リサーチモード）、定期タスクを組み合わせ、すべてを持ち運べる Markdown ファイルとして保存します。</p>
+<h2>特徴</h2>
+<ul>
+<li>3ペインUI（ナビゲーション・ノート一覧・エディタ）、デスクトップとモバイル両対応</li>
+<li>Live Markdown エディタ（CodeMirror 6）— Obsidian 風インラインプレビュー</li>
+<li>AI情報収集 — Webページをクロールし要点を抽出してノート化</li>
+<li>AIチャット リサーチモード — 最新の Web 情報を調査してから出典付きで回答、会話はノートとして自動保存</li>
+<li>お願いするだけで定期タスク化（例: 「毎朝AIニュースを収集して」）— cronScheduler へ自動登録</li>
+<li>全ノート対象のAI検索、AIバックエンドの選択（agent-cli または Claude Code CLI — Claude API は不使用）</li>
+<li>Markdownファーストの保存 — フロントマターなしの素の Markdown、フォルダ階層で分類。アプリ外でもそのまま使える</li>
+</ul>
+<h2>インストール</h2>
+<p>ワンライナー:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/mnemo/main/install.sh | sh
+<br/># 特定ディレクトリへ:
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/mnemo/main/install.sh | sh -s -- my-mnemo
+</code></pre>
+<p>手動セットアップ:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/mnemo.git
+<br/>cd mnemo
+<br/>npm install   # Webアプリの依存
+<br/>npm start     # Webアプリ + Rustサーバーバイナリをビルドして起動
+</code></pre>
+<p>必要条件: Node.js ≥ 18 と Rust（cargo）。更新では `data/`（ノート・設定・定期タスク）は決して破壊されません。</p>
+<h2>使い方</h2>
+<p>ブラウザで `http://localhost:3000` を開きます。設定は `data/config.json`（ポート、AIバックエンド `ai.type`、出力言語、Jina AI 検索API等との連携`search.endpoint` と `JINA_API_KEY`、信頼性設定）で行い、アプリ内の Settings ページからも編集できます。デタッチ実行例:</p>
+<pre><code>
+<br/>nohup npm start &gt;/dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<p>データ配置: `data/notes/`（カテゴリ分類されたMarkdown）、`data/assets/`、`data/scripts/`（エージェント作業ファイル）、`data/jobs/`（定期タスク）。</p>
+<h2>備考</h2>
+<ul>
+<li>技術スタック: サーバー Rust（axum + tokio）、Webアプリ TypeScript（React + Vite + Tailwind）、エディタ CodeMirror 6</li>
+<li>ログは `data/logs/mnemo.log` に書かれ、AIバックエンド呼び出しの失敗はチャット返信やタスク実行履歴で可視化されます</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

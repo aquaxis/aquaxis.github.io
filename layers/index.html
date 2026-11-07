@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>layers</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/ai-agent-tools/">AI &amp; Agent Tools</a></p>
+<h1>layers</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/layers">https://github.com/aquaxis/layers</a></p>
+<h2>Overview</h2>
+<p>Layers (Logic Aligned Yet Expressive Role System) is a hierarchical multi-agent system for a game/software development organization: 14 AI agents (Producer, Director, leads, designers, programmers, QA) collaborate, running on tmux + Claude Code CLI or on standalone agent-cli processes.</p>
+<h2>Features</h2>
+<ul>
+<li>14 hierarchical agents: Executive (Producer, Director), Design (lead + 2), Programming (lead + 5), QA (lead + 2)</li>
+<li>Dual backend support: Claude Code CLI (tmux send-keys) or agent-cli (send_to IPC, persona files)</li>
+<li>Real-time monitoring: health monitoring (`pnpm run monitor`) and a live dashboard of all 14 agents (`pnpm run live`)</li>
+<li>Inter-agent messaging CLI: `pnpm run send -- --to producer --type instruction --message "Start the project"`</li>
+<li>Provider selection for the agent-cli backend: claude (default), ollama, codex, opencode, llama.cpp</li>
+</ul>
+<h2>Installation</h2>
+<p>Prerequisites: Git, Node.js 20 LTS, pnpm; tmux + Claude Code CLI for the claude backend, or agent-cli for the agent-cli backend. One-liner:</p>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/layers/main/install.sh | sh
+</code></pre>
+<p>Manual:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/layers.git
+<br/>cd layers
+<br/>pnpm install &amp;&amp; pnpm run build
+<br/>pnpm run status   # health check
+</code></pre>
+<h2>Usage</h2>
+<pre><code>
+<br/>pnpm run start                          # all 14 agents (Claude CLI backend, default)
+<br/>pnpm run start -- --backend agent-cli   # agent-cli backend (--provider ollama etc.)
+<br/>pnpm run send -- --to producer --type instruction --message &quot;...&quot;
+<br/>pnpm run live                           # real-time dashboard
+<br/>pnpm run stop                           # stop all agents
+</code></pre>
+<p>Configuration lives in `.layers/src/config/agents.json`; the agent-cli backend uses persona files in `.layers/personas/` and `.layers/agent-cli.toml`. On Windows use WSL2.</p>
+<h2>Notes</h2>
+<ul>
+<li>Context limits: 14 simultaneous agents generate significant API usage; run only the agents you need, and use approval skips cautiously in production.</li>
+</ul>
+<h2>License</h2>
+<p>MIT</p>
+</body></html>

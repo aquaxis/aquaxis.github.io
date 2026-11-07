@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>e-Paper13.3</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/embedded-hardware-applications/">Embedded &amp; Hardware Applications</a></p>
+<h1>e-Paper13.3</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/e-Paper13.3">https://github.com/aquaxis/e-Paper13.3</a></p>
+<h2>Overview</h2>
+<p>A Raspberry Pi C program that displays BMP and PNG images on a 13.3-inch six-color e-Paper display, controlling the panel directly through the BCM2835 library.</p>
+<h2>Features</h2>
+<ul>
+<li>Drives a 13.3-inch six-color e-Paper display through the BCM2835 library</li>
+<li>Displays BMP and PNG image files</li>
+<li>Ctrl+C interrupt handling moves the panel to sleep mode on exit</li>
+</ul>
+<h2>Installation</h2>
+<p>Install libpng and build tools, then the BCM2835 library per its official site, and build with the repository Makefile:</p>
+<pre><code>
+<br/>sudo apt-get update
+<br/>sudo apt-get install -y libpng-dev build-essential
+</code></pre>
+<h2>Usage</h2>
+<p>Build and run the display program with the repository Makefile; requirements are a BCM2835-capable Raspberry Pi, the display, GCC, the BCM2835 library, and libpng.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: MIT</li>
+</ul>
+</body></html>

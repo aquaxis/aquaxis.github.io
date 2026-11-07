@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>aiprj</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>aiprj</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/aiprj">https://github.com/aquaxis/aiprj</a></p>
+<h2>概要</h2>
+<p>aiprj は Claude Code・OpenAI Codex CLI などのエージェントCLI向けプロジェクト管理ツールです。1コマンドでAI運用ガイドライン(運用・コーディング・更新規則)と要件・設計・タスクの文書構造を対象ディレクトリへ展開します。作業ログは `.aiprj/AI_LOG/yyyy-MM-dd_NNN.md` 形式で自動保存され、上書きされません。</p>
+<h2>特徴</h2>
+<ul>
+<li>AI運用ガイドラインとルール定義(`.aiprj/rules/`)</li>
+<li>要件・設計・タスクの3文書構造(`/setup_ai` `/ai` `/update_ai` `/next_ai` `/close_ai`)</li>
+<li>Claude Code用スラッシュコマンド、Codex CLI用スキル(`$setup-ai` 等)、agent-cli用コマンド</li>
+<li>作業ログの自動保存(`yyyy-MM-dd_NNN.md`、連番・上書き禁止)</li>
+<li>インストール済み `instructions.md` は再実行でも上書きしない安全設計</li>
+</ul>
+<h2>インストール</h2>
+<pre><code>
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/aiprj/main/install.sh | sh
+<br/># 特定ディレクトリへ:
+<br/>curl -fsSL https://raw.githubusercontent.com/aquaxis/aiprj/main/install.sh | sh -s -- &lt;directory_name&gt;
+</code></pre>
+<h2>使い方</h2>
+<p>`/setup_ai` で3文書を生成、`/ai` でタスク実行、`/next_ai` で次タスクへ、`/update_ai` で instructions.md 変更の反映、`/close_ai` で作業ログ保存と終了。要件変更は `instructions.md` を編集して `/update_ai` — 3文書は instructions.md を唯一の情報源として整合維持されます。</p>
+<h2>備考</h2>
+<ul>
+<li>要件: curl、tar または git、Claude Code / Codex CLI / 互換エージェントCLI</li>
+<li>デフォルトで `.aiprj` は .gitignore 対象(チーム共有する場合は設定解除)</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

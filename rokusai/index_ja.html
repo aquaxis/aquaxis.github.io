@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>rokusai</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a></p>
+<h1>rokusai</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rokusai">https://github.com/aquaxis/rokusai</a></p>
+<h2>概要</h2>
+<p>rokusai(六彩)は、画像をデジタルフォトフレーム用の7色パレット(黒・白・黄・赤・青・緑)に変換するC言語アプリケーションです。JPEG/PNG をBMP/PNG 形式で出力します。</p>
+<h2>特徴</h2>
+<ul>
+<li>JPEG/PNG 入力、BMP/PNG 出力</li>
+<li>グレーワールド法による自動ホワイトバランス、RGBゲインの手動調整</li>
+<li>彩度・コントラスト・明度・ガンマ・色相の色強調処理</li>
+<li>Floyd-Steinberg ディザリング</li>
+<li>アスペクト比保持リサイズ(白背景での中央配置)</li>
+</ul>
+<h2>インストール</h2>
+<p>ビルド方法:</p>
+<p>依存ライブラリ(Ubuntu/Debian): <code>libpng-dev</code>、<code>libjpeg-dev</code>。<code>make check-deps</code> で確認できます。</p>
+<pre><code>git clone https://github.com/aquaxis/rokusai.git
+cd rokusai
+make</code></pre>
+<h2>使い方</h2>
+<p>既定の自動ホワイトバランスで変換:</p>
+<pre><code>./rokusai photo.jpg -a</code></pre>
+<p>彩度・コントラスト・ガンマ調整の例:</p>
+<pre><code>./rokusai photo.png -s 1.5 -c 1.2 -G 0.9</code></pre>
+<p>オプション(<code>-f</code> 出力形式、<code>-r/-g/-b</code> WBゲイン、<code>-w/--height</code> リサイズ等)はリポジトリREADMEを参照してください。</p>
+</body></html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>vsync</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>vsync</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/vsync">https://github.com/aquaxis/vsync</a></p>
+<h2>概要</h2>
+<p>VSync(V RISC-Vertical SYNC)は、リアルタイムOS(RTOS)をハードウェアで実装し、POSIXインターフェースを備えたRISC-V RV32IMプロセッサシステムです。SystemVerilogで記述され、Xilinx Artix UltraScale+ および Artix-7 をターゲットとします。</p>
+<h2>特徴</h2>
+<ul>
+<li>RISC-V RV32IM — 5段パイプライン(Fetch/Decode/Execute/Memory/Writeback)</li>
+<li>タスク管理・スケジューリング・コンテキストスイッチをハードウェアで実装</li>
+<li>pthread/セマフォ/ミューテックス/メッセージキュー/ファイルI/O をハードウェアレベルでサポート</li>
+<li>AXI4 → APB ブリッジによるペリフェラル接続(UART, GPIO, HyperRAM, PLIC, CLINT)</li>
+<li>PMP(Physical Memory Protection)内蔵</li>
+<li>UART経由のプログラムロード(load/go コマンド)</li>
+</ul>
+<h2>インストール</h2>
+<p>リポジトリをクローンし、Vivadoプロジェクトを使用します:</p>
+<pre><code>git clone https://github.com/aquaxis/vsync.git</code></pre>
+<h2>使い方</h2>
+<p>シミュレーション・合成手順は <a href="https://github.com/aquaxis/vsync">リポジトリREADME</a> を参照してください。</p>
+</body></html>

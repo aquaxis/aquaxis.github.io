@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>alecto</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>Alecto</h1>
+<p>GitHub: <https://github.com/alecto></p>
+<h2>概要</h2>
+<p>Alecto（Autonomous Logic Executor for Complex Task Operations）は、ローカルの Ollama LLM と MCP（Model Context Protocol）サーバーを組み合わせた、ツール拡張可能な AI チャット CLI アプリケーションです。</p>
+<h2>特徴</h2>
+<ul>
+<li>Ollama によるローカル LLM との対話</li>
+<li>MCP サーバーを通じたツール呼び出し（ファイル操作、Web検索など）</li>
+<li>設定ファイルへの MCP サーバー追加による拡張可能なツールシステム</li>
+</ul>
+<h2>インストール</h2>
+<p>1. Ollama のインストール:</p>
+<pre><code>
+<br/>curl -fsSL https://ollama.com/install.sh | sh
+</code></pre>
+<p>2. モデルのダウンロード:</p>
+<pre><code>
+<br/>ollama pull ministral:3b
+</code></pre>
+<p>3. 依存パッケージのインストール:</p>
+<pre><code>
+<br/>make setup   # または npm install
+</code></pre>
+<p>構成はプロジェクトルートの `.alecto/config.json` で行います（`mcpServers` にコマンドと引数、`ollama.host` / `ollama.model` を指定）。</p>
+<h2>使い方</h2>
+<pre><code>
+<br/>ollama serve   # 別ターミナルで Ollama サーバーを起動
+<br/>npm start      # アプリケーションを起動
+</code></pre>
+<p>メッセージを入力して Enter で送信、`exit` で終了します。</p>
+<h2>備考</h2>
+<ul>
+<li>必要条件: Node.js 18 以上、npm、Ollama</li>
+<li>ライセンス: ISC</li>
+</ul>
+</body></html>

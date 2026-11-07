@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>jpegenc</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>jpegenc</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/jpegenc">https://github.com/aquaxis/jpegenc</a></p>
+<h2>Overview</h2>
+<p>jpegenc is an FPGA baseline JPEG encoder IP written in SystemVerilog. It compresses RGB images in real time and outputs a JFIF-compliant byte stream.</p>
+<h2>Features</h2>
+<ul>
+<li>Dual Processing Pipeline architecture: 4:2:0 mode at **1.53 clk/px** (0.652 px/clk)</li>
+<li>~78 fps estimated at FHD 1920×1088 @ 250 MHz — a 30% margin over a 60 fps target</li>
+<li>YCbCr RGB input with 4:2:0 sampling and JFIF-compliant output</li>
+<li>All 59 tests pass</li>
+<li>Simulator choice: Verilator or Vivado xsim</li>
+</ul>
+<h2>Installation</h2>
+<p>Clone the repository and use the supplied simulation/build flow:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/jpegenc.git
+<br/>cd jpegenc
+</code></pre>
+<h2>Usage</h2>
+<p>The repository README documents the file structure, required environment (Vivado / Verilator), the module list, test results, and troubleshooting. Use it as the integration reference for adding the encoder IP to a design.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: see the repository (LICENSE file).</li>
+</ul>
+</body></html>

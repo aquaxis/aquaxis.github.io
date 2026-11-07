@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>rag-cli</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/ai-agent-tools/index_ja.html">AIエージェントツール</a></p>
+<h1>rag-cli</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rag-cli">https://github.com/aquaxis/rag-cli</a></p>
+<h2>概要</h2>
+<p>rag-cli は、単一の Rust バイナリで動作する完全ローカルの RAG（検索拡張生成）システムです。Hono 互換の REST API（`127.0.0.1:7777`）と CLI を備え、Node.js ランタイムは不要です。</p>
+<h2>特徴</h2>
+<ul>
+<li>**多形式のオフライン取り込み** — PDF / 画像 / SVG / drawio / Markdown / プレーンテキスト / Web URL</li>
+<li>**多言語埋め込み** — `bge-m3`（1024次元、Ollama / llama.cpp を切替）</li>
+<li>**ベクトル検索** — Qdrant v1.12.4 + HNSW Cosine + payload インデックス</li>
+<li>**クロスエンコーダ リランカー** — `bge-reranker-v2-m3-ONNX`（`ort` + `tokenizers` + `hf-hub`）</li>
+<li>**LLM回答** — `qwen2.5:7b-instruct`（出典引用 `[1][2]` 付き、不明点は明示）</li>
+<li>**日本語対応チャンキング** — 句読点優先の再帰分割 + 見出しパス接頭辞</li>
+<li>**単一バイナリ配布** — `cargo install` または `cargo build --release`（Node.js 不要）</li>
+</ul>
+<h2>インストール</h2>
+<pre><code>
+<br/>cargo build --release            # ./target/release/rag-cli
+<br/>cargo install --path crates/cli  # ~/.cargo/bin/rag-cli
+</code></pre>
+<p>外部サービス（Qdrant / Ollama / Docling Serve）は `podman compose up -d` で起動します。モデルは次のコマンドで取得:</p>
+<pre><code>
+<br/>podman exec rag-ollama ollama pull bge-m3
+<br/>podman exec rag-ollama ollama pull qwen2.5:7b-instruct
+</code></pre>
+<p>詳細はリポジトリの `doc/01-installation.md` を参照してください。</p>
+<h2>使い方</h2>
+<pre><code>
+<br/>rag-cli ingest data/md/note.md      # 取り込み（ファイル/ディレクトリ/URL）
+<br/>rag-cli search &quot;質問文&quot; --top-n 3 --no-rerank
+<br/>rag-cli serve                       # REST API 起動（127.0.0.1:7777）
+<br/>rag-cli status / reindex
+</code></pre>
+<p>REST API は `/health`、`/ingest`、`/ingest/upload`、`/search`、`/search/stream`、`/status`、`/reindex` の7エンドポイントを提供します。</p>
+<h2>備考</h2>
+<ul>
+<li>既定では `127.0.0.1` バインド（LAN・公開時は認証付きリバースプロキシを使用）</li>
+<li>設定は `.env`（24環境変数、`doc/05-configuration.md` 参照）</li>
+</ul>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>c105</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>c105</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/c105">https://github.com/aquaxis/c105</a></p>
+<h2>概要</h2>
+<p>C105で頒布した書籍「FPGAの内容が薄い本8 やりなおしからはじめるFPGA開発」のサンプルソースコード集です。書籍のPDF版は <a href="https://aquaxis.booth.pm/items/6386585">Booth</a> で頒布中です。</p>
+<h2>特徴</h2>
+<ul>
+<li>章ごとの完全なサンプルRTL:アダー(第7章)、ビーコン回路(第10章)、RISC-V(第11章)</li>
+<li>Vivadoビルド設定:Makefileベースの論理合成・配置配線・ビットストリーム生成スクリプト</li>
+<li>各設計に制約ファイル(xdc)とテストベンチを同梱</li>
+</ul>
+<h2>インストール</h2>
+<p>リポジトリをクローンし、章のMakefileでビルドします:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/c105.git
+<br/>cd c105/01_adder/build
+<br/>make
+</code></pre>
+<p>Xilinx Vivado が必要です(vivado コマンドが PATH 上にあること)。</p>
+<h2>使い方</h2>
+<p>各章フォルダ(01_adder など)は rtl/・build/・script/ を含みます。RTLを編集し、章の build/ ディレクトリで make を実行し、生成したビットストリームを書籍の記述に従ってFPGAボードへ書き込みます。</p>
+<h2>備考</h2>
+<ul>
+<li>ライセンス: MIT</li>
+<li>質問はリポジトリの New Issue からどうぞ</li>
+</ul>
+</body></html>

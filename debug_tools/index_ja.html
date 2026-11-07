@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>debug_tools</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/embedded-hardware-applications/index_ja.html">組込み・ハードウェア応用</a></p>
+<h1>debug_tools</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/debug_tools">https://github.com/aquaxis/debug_tools</a></p>
+<h2>概要</h2>
+<p>Linux上で物理メモリデータを読み書きするツール群(/dev/mem)。memdump(メモリダンプ)と memwrite(メモリライト)を提供します。</p>
+<h2>特徴</h2>
+<ul>
+<li>/dev/mem へのアクセス権があればメモリの読み書きが可能</li>
+<li>16進アドレス指定のメモリダンプ/ライト</li>
+<li>単一のCソース(x2)で構成</li>
+</ul>
+<h2>インストール</h2>
+<p>コンパイル方法:</p>
+<pre><code>gcc -o memdump memdump.c
+gcc -o memwrite memwrite.c</code></pre>
+<h2>使い方</h2>
+<p>./memdump ADDRESS(hex) NUM(dec) / ./memwrite ADDRESS(hex) DATA(hex)</p>
+</body></html>

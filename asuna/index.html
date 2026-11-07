@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>asuna</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>asuna</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/asuna">https://github.com/aquaxis/asuna</a></p>
+<h2>Overview</h2>
+<p>ASUNA (Algorithmic Synthesis for Unified Netlist Automation) is a high-level synthesis tool that generates Verilog HDL from C source code. It takes a deliberately simple approach: C language only, one input source file, and each function becomes a Verilog module.</p>
+<h2>Features</h2>
+<ul>
+<li>C-to-VerilogHDL high-level synthesis</li>
+<li>Function = module mapping for a simple, predictable output structure</li>
+<li>No LLVM front end or back end dependency</li>
+<li>Single-file input keeps the synthesis scope clear</li>
+</ul>
+<h2>Installation</h2>
+<p>Build the tool from the repository sources:</p>
+<pre><code>
+<br/>git clone https://github.com/aquaxis/asuna.git
+<br/>cd asuna
+</code></pre>
+<p>The repository's Makefile builds the toolchain; see the repository README for build instructions and constraints.</p>
+<h2>Usage</h2>
+<p>Feed a C source file to generate Verilog HDL. Documented constraints from the repository README:</p>
+<ul>
+<li>C language only; input is a single source file; comments are expected in Japanese (UTF-8)</li>
+<li>Complex structures and macros may not be processed</li>
+<li>Floating point is not supported</li>
+<li>Division generates very large circuits</li>
+<li>Structures should be 4-byte aligned</li>
+<li>Memory is externalized, so initialization cannot happen inside the generated hardware — initialize from outside</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>License: MIT (per the repository README).</li>
+</ul>
+</body></html>

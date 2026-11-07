@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>rv_saturn</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<h1>rv_saturn</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/rv_saturn">https://github.com/aquaxis/rv_saturn</a></p>
+<h2>Overview</h2>
+<p>RISC-V Saturn is a multicore RISC-V soft core plus the surrounding SoC, debug, and FPGA implementation set. The core implements RV32I with the RVV vector extension (Zve32x subset), and the SoC uses a dual-heart multicore configuration — the name comes from Saturn: the target application sits at the center, with RISC-V cores around it like the rocks of its rings.</p>
+<h2>Features</h2>
+<ul>
+<li>RV32I + RVV Zve32x (VLEN=128, ELEN=32, SEW 8/16/32, LMUL 1/8–8, masked operations, unit-stride loads/stores); element-serial vector execution; M and A extensions not implemented by design</li>
+<li>Single-stage core with fixed 32-bit instructions; unimplemented instructions do not trap (compile with `-march` restricted to the implemented range)</li>
+<li>Dual-heart multicore: each heart owns private IMEM/DMEM, sharing only the peripheral bus; round-robin system bus arbitration; hardware mutex (`apb_mutex`, lock + mailbox) for inter-heart synchronization since there is no A extension; `CORES=2` default, `CORES=1` for single core</li>
+<li>APB peripherals (base `0x8000_0000`): UART with GPIO, QSPI, I2C, timer, PLIC interrupt controller, and the mutex</li>
+<li>Debug: RISC-V Debug Module / DTM; Verilator RTL simulation; OpenOCD JTAG debugging (including a Verilator+OpenOCD simulation environment)</li>
+<li>Target FPGA: AMD (Xilinx) Artix-7 (Arty A7); xsim flow available alongside Verilator</li>
+<li>Performance (33.33 MHz, no `-O`): Dhrystone 22.059 DMIPS (0.662 DMIPS/MHz), CoreMark 0.366 CoreMark/MHz</li>
+</ul>
+<h2>Installation</h2>
+<p>A RISC-V toolchain (`riscv32i`, overridable on the command line) is required for the bundled applications; Vivado is needed for FPGA builds. Clone the repository, then build apps and simulations with make:</p>
+<pre><code>
+<br/>make -C apps/ &lt;app&gt;                 # build an application
+<br/>make -C apps/ binary                # generate hex
+<br/>make -C sim sim_fpga_verilator SCENARIO=&lt;app&gt;   # Verilator RTL simulation
+<br/>make -C sim sim_fpga SCENARIO=&lt;app&gt;             # xsim simulation (needs Vivado)
+</code></pre>
+<h2>Usage</h2>
+<p>Applications under `apps/` include `gpio`, `gpio_loop`, `uart`, `coremark`, `dhrystone`, a bootloader, the self-checking ISA/vector test `test_inst`, and the dual-heart/mutex test `mc_test`. A normal Verilator run ends with `[SIM] PASS`. For FPGA, build the `artya7` target and select the application to embed with `SCENARIO=` (default `gpio_loop`):</p>
+<pre><code>
+<br/>make -C fpga artya7 SCENARIO=&lt;app&gt;
+</code></pre>
+<p>Each subdirectory (`rtl/`, `sim/`, `simocd/`, `fpga/`, `apps/`) carries its own README with details.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: dual — GPLv3-or-later (full source disclosure obligations apply to distributed artifacts, including SoCs based on `rvs32iv_soc`), or a negotiated commercial license (`LICENSE-COMMERCIAL.md`).</li>
+<li>Debug RTL is developed separately in [rv_debug](/rv_debug/).</li>
+</ul>
+</body></html>

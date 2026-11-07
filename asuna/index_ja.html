@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>asuna</title></head>
+<body>
+<ul id="lang"><li><a href="index.html">English</a></li></ul>
+<p><a href="/">ホーム</a> · <a href="/hardware-rtl/index_ja.html">ハードウェア／RTL</a></p>
+<h1>asuna</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/asuna">https://github.com/aquaxis/asuna</a></p>
+<h2>概要</h2>
+<p>ASUNA(Algorithmic Synthesis for Unified Netlist Automation)は、C言語からVerilogHDLを生成する高位合成ツールです。「単純に、C言語をVerilogHDLに変換する」。関数=モジュールという考え方で設計されています。</p>
+<h2>特徴</h2>
+<ul>
+<li>C言語のみ対応(LLVMフロントエンド/バックエンド非使用)</li>
+<li>入力は1ファイルのみ</li>
+<li>メモリは外部化(初期化は外部から行う)</li>
+<li>4Byteアライメントの構造体に対応</li>
+<li>浮動小数点と除算は非対応(除算は莫大な回路を生成)</li>
+</ul>
+<h2>インストール</h2>
+<p>ソースをコンパイルしてツールをビルドします:</p>
+<pre><code>git clone https://github.com/aquaxis/asuna.git</code></pre>
+<h2>使い方</h2>
+<p>C言語ソースを入力に、VerilogHDLを生成します。制約の詳細は <a href="https://github.com/aquaxis/asuna">リポジトリREADME</a> を参照してください。</p>
+<h2>ライセンス</h2>
+<p>MIT</p>
+</body></html>

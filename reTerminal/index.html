@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>reTerminal</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/embedded-hardware-applications/">Embedded &amp; Hardware Applications</a></p>
+<h1>reTerminal</h1>
+<p>GitHub: <a href="https://github.com/aquaxis/reTerminal">https://github.com/aquaxis/reTerminal</a></p>
+<h2>Overview</h2>
+<p>An ESP-IDF application that drives the reTerminal E1002's 7.3-inch full-color e-Paper display (GDEP073E01, Spectra 6) with a XIAO-ESP32-S3 board.</p>
+<h2>Features</h2>
+<ul>
+<li>XIAO-ESP32-S3 drives the reTerminal E1002 7.3-inch Spectra6 e-Paper (GDEP073E01, 800x480)</li>
+<li>ESP-IDF (v5.x) project with GPIO pin map for SPI connection</li>
+<li>WiFi with DHCP/static IP from an SD-card config file; HTTP server on port 80</li>
+<li>Browse/upload/download files on the SD card from a browser; POST <code>/api/update</code> refreshes the display</li>
+</ul>
+<h2>Installation</h2>
+<p>Requires ESP-IDF v5.0 or later and Python 3.8+:</p>
+<pre><code>
+<br/>git clone &lt;repository-url&gt;
+<br/>cd reTerminal
+<br/>idf.py set-target esp32s3
+<br/>idf.py menuconfig   # optional settings
+<br/>idf.py build
+</code></pre>
+<h2>Usage</h2>
+<p>Flash to the board and display BMP images on the e-Paper panel. Hardware: XIAO-ESP32-S3 + reTerminal E1002 (7.3-inch e-Paper), 3.3 V over USB-C.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: not specified in the repository.</li>
+</ul>
+</body></html>

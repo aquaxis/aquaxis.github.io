@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>shiori</title></head>
+<body>
+<ul id="lang"><li><a href="index_ja.html">日本語</a></li></ul>
+<p><a href="/">Home</a> · <a href="/hardware-rtl/">Hardware &amp; RTL</a></p>
+<p>GitHub: <a href="https://github.com/aquaxis/shiori">https://github.com/aquaxis/shiori</a></p>
+<h2>Overview</h2>
+<p>Shiori is an HDL/RTL annotation ecosystem: by embedding "waymark" annotations into hardware source code, it automates documentation generation, validity checking, testbench generation, and source-code generation. Annotations are Markdown-based and readable by humans, while the `@modifier` syntax gives them structure that AI agents can parse.</p>
+<h2>Features</h2>
+<ul>
+<li>Human-readable — natural Markdown notation that fits into existing comments with a few extra lines</li>
+<li>AI-readable — structured `@modifier` syntax, with a dedicated AI reference document (Japanese and English) for agent consumption</li>
+<li>Four commands: `shiori gen-doc` (Markdown specifications from annotations), `shiori check` (annotation↔source consistency), `shiori gen-tb` (SystemVerilog testbench generation), and `shiori gen-src` (HDL skeleton generation)</li>
+<li>Language support: SystemVerilog (IEEE 1800-2023, `//` and `/* */`) and IRIS (`//`, `/* */`, `///`, `//!`)</li>
+<li>50 modifiers documented in the reference; guides for SystemVerilog and IRIS usage, CLI reference, best practices, and an FAQ</li>
+</ul>
+<h2>Installation</h2>
+<p>Shiori is a TypeScript toolchain. Clone the repository and build with the TypeScript toolchain of your choice; the `doc/01-quickstart.md` guide walks through installation and the first run. (See the repository's README and quickstart guide for the exact commands.)</p>
+<h2>Usage</h2>
+<pre><code>
+<br/>shiori gen-doc   # generate a Markdown specification from annotations
+<br/>shiori check     # check annotations against the source code
+<br/>shiori gen-tb    # generate a SystemVerilog testbench from annotations
+<br/>shiori gen-src   # generate an HDL source skeleton from annotations
+</code></pre>
+<p>The documentation set (`doc/01-quickstart.md` … `doc/07-faq.md`) covers the quickstart, the full modifier reference, language-specific guides, CLI options, and annotation best practices.</p>
+<h2>Notes</h2>
+<ul>
+<li>License: MIT.</li>
+<li>IRIS support pairs with the [iris](/iris/) hardware description language.</li>
+</ul>
+</body></html>
